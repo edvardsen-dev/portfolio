@@ -4,7 +4,7 @@
 	import { links, socials } from '.';
 	import ThemeToggle from '../theme-toggle.svelte';
 
-	let open = $state(true);
+	let open = $state(false);
 </script>
 
 <Sheet.Root bind:open>
