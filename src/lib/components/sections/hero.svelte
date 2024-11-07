@@ -17,8 +17,8 @@
 </script>
 
 <Width>
-	{#if loaded}
-		<header class="grid min-h-screen content-center md:flex md:items-center md:justify-between">
+	<header class="grid min-h-screen content-center md:flex md:items-center md:justify-between">
+		{#if loaded}
 			<div class="mb-8">
 				<h1 class="mb-8 flex flex-col uppercase">
 					<span in:fly={transition}>Hi 👋, I'm</span>
@@ -49,6 +49,6 @@
 				alt="Joakim Edvardsen"
 				class="w-[150px] md:w-[200px] lg:w-[300px]"
 			/>
-		</header>
-	{/if}
+		{/if}
+	</header>
 </Width>
