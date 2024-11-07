@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Hero from '$lib/components/sections/hero.svelte';
-	import { Button } from '$lib/components/ui/button';
-	import { toggleMode } from 'mode-watcher';
+	import Technologies from '$lib/components/sections/technologies.svelte';
 </script>
 
-<div class="min-h-[200vh]">
+<div>
 	<Hero />
+	<Technologies />
 </div>
