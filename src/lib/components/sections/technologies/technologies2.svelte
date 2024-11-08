@@ -30,6 +30,11 @@
 			file: 'drizzle.png',
 			options: { bg: 'bg-neutral-600/20' }
 		},
+		{
+			name: 'Playwright',
+			file: 'playwright.svg',
+			options: { bg: 'bg-green-600/20' }
+		},
 		{ name: 'Java', file: 'java.png', options: { bg: 'bg-blue-400/20' } },
 		{
 			name: 'Spring Boot',
@@ -52,7 +57,7 @@
 			options: { bg: 'bg-blue-400/20' }
 		},
 		{ name: 'Docker', file: 'docker.webp', options: { bg: 'bg-blue-400/20' } },
-		{ name: 'Nginx', file: 'nginx.png', options: { bg: 'bg-green-400/20' } },
+		{ name: 'Nginx', file: 'nginx.png', options: { bg: 'bg-green-600/20' } },
 		{
 			name: 'DigitalOcean',
 			file: 'digitalocean.png',
