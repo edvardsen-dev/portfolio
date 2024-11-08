@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
 
 	const offset = { x: -28, y: 10 };
@@ -15,7 +16,7 @@
 	let donglePosition = spring(
 		{ x: 0, y: 0 },
 		{
-			stiffness: 0.1,
+			stiffness: 0.05,
 			damping: 0.7
 		}
 	);
@@ -35,6 +36,6 @@
 		src="/img/baby-yoda.png"
 		alt="Baby yoda"
 		class="pointer-events-none fixed z-10 h-14 w-14"
-		style="top: {$donglePosition.y}px; left: {$donglePosition.x}px"
+		style="top: {$donglePosition.y}px; left: {$donglePosition.x}px;"
 	/>
 {/if}
