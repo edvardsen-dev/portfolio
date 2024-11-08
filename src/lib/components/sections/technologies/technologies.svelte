@@ -119,7 +119,7 @@
 			<a
 				href={tool.href}
 				target="_blank"
-				class="flex gap-4 rounded-lg border bg-muted p-4 transition-colors hover:bg-muted/70"
+				class="flex gap-4 rounded-lg border bg-card p-4 transition-colors hover:bg-card/70"
 			>
 				<img
 					src={`/img/logos/${tool.file}`}

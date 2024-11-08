@@ -4,6 +4,7 @@
 	import Technologies2 from '$lib/components/sections/technologies/technologies2.svelte';
 	import HideDongle from '$lib/components/ui/customs/mouse-dongle/hide-dongle.svelte';
 	import MouseDongle from '$lib/components/ui/customs/mouse-dongle/index.svelte';
+	import Experiences from '$lib/components/sections/experience/index.svelte';
 </script>
 
 <MouseDongle />
@@ -11,5 +12,6 @@
 	<Hero />
 	<HideDongle>
 		<Technologies2 />
+		<Experiences />
 	</HideDongle>
 </div>
