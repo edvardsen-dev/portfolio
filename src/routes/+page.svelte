@@ -10,6 +10,6 @@
 <div class="min-h-[300vh]">
 	<Hero />
 	<HideDongle>
-		<Technologies />
+		<Technologies2 />
 	</HideDongle>
 </div>

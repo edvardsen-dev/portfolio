@@ -11,20 +11,24 @@
 
 	const tools: Tool[] = [
 		{
+			name: 'TypeScript',
+			file: 'typescript.png',
+			options: { bg: 'bg-blue-400/20' }
+		},
+		{
 			name: 'SvelteKit',
 			file: 'svelte.png',
 			options: { bg: 'bg-orange-400/20' }
 		},
 		{
-			name: 'NextJs',
-			file: 'nextjs.png',
-			options: { bg: 'bg-neutral-400/20', invert: true }
-		},
-		{ name: 'Vue', file: 'vue.png', options: { bg: 'bg-green-400/20' } },
-		{
 			name: 'Tailwind',
 			file: 'tailwind.png',
 			options: { bg: 'bg-blue-400/20' }
+		},
+		{
+			name: 'Drizzle',
+			file: 'drizzle.png',
+			options: { bg: 'bg-neutral-600/20' }
 		},
 		{ name: 'Java', file: 'java.png', options: { bg: 'bg-blue-400/20' } },
 		{
@@ -38,16 +42,15 @@
 			options: { bg: 'bg-blue-400/20' }
 		},
 		{
-			name: 'GitHub',
-			file: 'github.png',
-			options: { bg: 'bg-neutral-400/20', invert: true }
+			name: 'Git',
+			file: 'git.png',
+			options: { bg: 'bg-orange-600/20' }
 		},
 		{
 			name: 'GitHub Actions',
 			file: 'github-actions.png',
 			options: { bg: 'bg-blue-400/20' }
 		},
-		{ name: 'GitLab', file: 'gitlab.png', options: { bg: 'bg-orange-400/20' } },
 		{ name: 'Docker', file: 'docker.webp', options: { bg: 'bg-blue-400/20' } },
 		{ name: 'Nginx', file: 'nginx.png', options: { bg: 'bg-green-400/20' } },
 		{
@@ -59,6 +62,11 @@
 			name: 'Ansible',
 			file: 'ansible.png',
 			options: { bg: 'bg-neutral-400/20', invert: true }
+		},
+		{
+			name: 'Figma',
+			file: 'figma.png',
+			options: { bg: 'bg-violet-400/20' }
 		}
 	] as const;
 
@@ -114,7 +122,7 @@
 				<img
 					src={`/img/logos/${tool.file}`}
 					alt={tool.name}
-					class="object-contain {tool.options.invert && 'dark:invert'}"
+					class="aspect-square object-contain {tool.options.invert && 'dark:invert'}"
 				/>
 			</div>
 			<p class="text-center text-xs text-muted-foreground">{tool.name}</p>
