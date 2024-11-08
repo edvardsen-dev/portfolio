@@ -35,7 +35,7 @@
 	<img
 		src="/img/baby-yoda.png"
 		alt="Baby yoda"
-		class="pointer-events-none fixed z-10 h-14 w-14"
+		class="pointer-events-none fixed h-14 w-14"
 		style="top: {$donglePosition.y}px; left: {$donglePosition.x}px;"
 	/>
 {/if}

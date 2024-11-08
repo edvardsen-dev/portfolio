@@ -12,6 +12,6 @@
 	<Hero />
 	<HideDongle>
 		<Technologies2 />
-		<Experiences />
 	</HideDongle>
+	<Experiences />
 </div>

@@ -25,7 +25,7 @@
 	{@const flyDirection = index % 2 === 0 ? -1 : 1}
 	{@const flyOptions = { x: 100 * flyDirection, duration: 1000 }}
 	<article in:fly={flyOptions} class="flex flex-col {hidden && 'invisible'}">
-		<div class="mb-2 flex flex-grow gap-4 rounded-lg border bg-card p-4">
+		<div class="mb-2 flex flex-grow gap-4 rounded-lg border bg-card/80 p-4 backdrop-blur-sm">
 			<a
 				href={experience.company.href}
 				target="_blank"

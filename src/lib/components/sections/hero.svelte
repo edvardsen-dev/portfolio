@@ -3,6 +3,7 @@
 	import Button from '../ui/button/button.svelte';
 	import Width from '../utils/width.svelte';
 	import { onMount } from 'svelte';
+	import { Github, Linkedin, Mail } from 'lucide-svelte';
 
 	const transition = {
 		y: 40,
@@ -34,12 +35,27 @@
 				</p>
 				<div class="flex gap-2">
 					<div in:fly={{ ...transition, delay: 400 }}>
-						<Button href="mailto:joakimedvardsen2000@gmail.com">Take contact</Button>
+						<Button href="mailto:joakimedvardsen2000@gmail.com"><Mail />Take contact</Button>
 					</div>
 					<div in:fly={{ ...transition, delay: 450 }}>
-						<Button href="https://github.com/jKm00" target="_blank" variant="outline"
-							>Check out GitHub</Button
+						<Button
+							href="https://github.com/jKm00"
+							target="_blank"
+							variant="outline"
+							class="aspect-square p-2"
 						>
+							<Github />
+						</Button>
+					</div>
+					<div in:fly={{ ...transition, delay: 500 }}>
+						<Button
+							href="https://www.linkedin.com/in/joakim-edvardsen-665043220/"
+							target="_blank"
+							variant="outline"
+							class="aspect-square p-2"
+						>
+							<Linkedin />
+						</Button>
 					</div>
 				</div>
 			</div>
