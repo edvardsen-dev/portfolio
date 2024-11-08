@@ -117,7 +117,7 @@
 
 {#snippet card(tool: Tool, index: number)}
 	{#if showTechnologies}
-		<div in:fly={{ y: 40, duration: 1000, delay: 100 * index }}>
+		<div in:fly={{ y: 40, duration: 1000, delay: 50 * index }}>
 			<div class="m-auto mb-2 grid size-12 items-center rounded-lg border p-2 {tool.options.bg}">
 				<img
 					src={`/img/logos/${tool.file}`}
