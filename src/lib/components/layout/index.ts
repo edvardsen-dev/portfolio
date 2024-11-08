@@ -7,7 +7,10 @@ import {
 	Github,
 	Codepen,
 	Linkedin,
-	Instagram
+	Instagram,
+	Mail,
+	Phone,
+	Pin
 } from 'lucide-svelte';
 
 export const links = [
@@ -16,6 +19,22 @@ export const links = [
 	{ name: 'Projects', href: '/#projects', icon: FolderCode },
 	{ name: 'Resume', href: '/resume', icon: ScrollText },
 	{ name: 'Quiz', href: '/quiz', icon: Gamepad }
+];
+
+export const contacts = [
+	{
+		name: 'Email',
+		value: 'joakimedvardsen2000@gmail.com',
+		href: 'mailto:joakimedvardsen2000@gmail.com',
+		icon: Mail
+	},
+	{ name: 'Phone', value: '+47 901 59 363', href: 'tel:901-59-363', icon: Phone },
+	{
+		name: 'Location',
+		value: 'Trondheim, Norway',
+		href: 'https://maps.app.goo.gl/qHYuA72PZf55RqH56',
+		icon: Pin
+	}
 ];
 
 export const socials = [

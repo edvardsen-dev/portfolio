@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { links } from '.';
-	import ThemeToggle from '../theme-toggle.svelte';
+	import ThemeToggle from '$lib/components/ui/customs/theme-toggle.svelte';
+	import { links } from '..';
 </script>
 
 <nav

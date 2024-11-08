@@ -1,14 +1,14 @@
 <script lang="ts">
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import { Menu } from 'lucide-svelte';
-	import { links, socials } from '.';
-	import ThemeToggle from '../theme-toggle.svelte';
+	import { links, socials } from '..';
+	import ThemeToggle from '$lib/components/ui/customs/theme-toggle.svelte';
 
 	let open = $state(false);
 </script>
 
 <Sheet.Root bind:open>
-	<Sheet.Trigger class="absolute right-4 top-5">
+	<Sheet.Trigger class="fixed right-4 top-5">
 		<Menu />
 	</Sheet.Trigger>
 	<Sheet.Content side="right">
