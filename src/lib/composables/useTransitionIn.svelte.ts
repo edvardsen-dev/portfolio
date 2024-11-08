@@ -9,8 +9,6 @@ export function useTransitionIn(nodeF: () => HTMLElement | null, options?: Optio
 	let show = $state(false);
 
 	onMount(() => {
-		console.log('Observing', nodeF());
-
 		const finalOptions = {
 			root: null,
 			rootMargin: options?.margin || '0px',

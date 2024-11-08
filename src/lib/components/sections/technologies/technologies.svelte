@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Width from '$lib/components/utils/width.svelte';
+	import { useTransitionIn } from '$lib/composables/useTransitionIn.svelte';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 
@@ -71,31 +72,7 @@
 	] as const;
 
 	let section = $state<HTMLElement | null>(null);
-	let showTechnologies = $state(false);
-
-	onMount(() => {
-		const options = {
-			root: null,
-			rootMargin: '0px',
-			threshold: 0.8
-		};
-
-		const observer = new IntersectionObserver((entries, observer) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					showTechnologies = true;
-
-					observer.unobserve(entry.target);
-				}
-			});
-		}, options);
-
-		do {
-			if (section) {
-				observer.observe(section);
-			}
-		} while (section === null);
-	});
+	let transition = useTransitionIn(() => section);
 </script>
 
 <Width class="py-32">
@@ -107,32 +84,36 @@
 		</p>
 		<ul class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{#each tools as tool, index}
-				{@render card(tool, index)}
+				{@render cardWrapper(tool, index)}
 			{/each}
 		</ul>
 	</section>
 </Width>
 
-{#snippet card(tool: Tool, index: number)}
-	{#if showTechnologies}
-		<li in:fly={{ y: 40, duration: 1000, delay: index * 100 }}>
-			<a
-				href={tool.href}
-				target="_blank"
-				class="flex gap-4 rounded-lg border bg-card p-4 transition-colors hover:bg-card/70"
-			>
-				<img
-					src={`/img/logos/${tool.file}`}
-					alt={tool.name}
-					class="size-10 rounded-lg border object-contain p-1.5 {tool.options?.bg}"
-				/>
-				<div>
-					<h2>{tool.name}</h2>
-					<p class="text-xs text-muted-foreground">{tool.description}</p>
-				</div>
-			</a>
-		</li>
+{#snippet card(tool: Tool, index: number, hidden: boolean = false)}
+	<li in:fly={{ y: 40, duration: 1000, delay: index * 100 }} class={`${hidden && 'invisible'}`}>
+		<a
+			href={tool.href}
+			target="_blank"
+			class="flex gap-4 rounded-lg border bg-card p-4 transition-colors hover:bg-card/70"
+		>
+			<img
+				src={`/img/logos/${tool.file}`}
+				alt={tool.name}
+				class="size-10 rounded-lg border object-contain p-1.5 {tool.options?.bg}"
+			/>
+			<div>
+				<h2>{tool.name}</h2>
+				<p class="text-xs text-muted-foreground">{tool.description}</p>
+			</div>
+		</a>
+	</li>
+{/snippet}
+
+{#snippet cardWrapper(tool: Tool, index: number)}
+	{#if transition.show}
+		{@render card(tool, index)}
 	{:else}
-		<li class="h-[74px]"></li>
+		{@render card(tool, index, true)}
 	{/if}
 {/snippet}

@@ -14,6 +14,4 @@
 		<Technologies2 />
 		<Experiences />
 	</HideDongle>
-
-	<p>yo</p>
 </div>

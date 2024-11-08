@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import Width from '../../utils/width.svelte';
-	import { onMount } from 'svelte';
+	import { useTransitionIn } from '$lib/composables/useTransitionIn.svelte';
 
 	type Tool = {
 		name: string;
@@ -71,31 +71,7 @@
 	] as const;
 
 	let section = $state<HTMLElement | null>(null);
-	let showTechnologies = $state(false);
-
-	onMount(() => {
-		const options = {
-			root: null,
-			rootMargin: '0px',
-			threshold: 0.8
-		};
-
-		const observer = new IntersectionObserver((entries, observer) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					showTechnologies = true;
-
-					observer.unobserve(entry.target);
-				}
-			});
-		}, options);
-
-		do {
-			if (section) {
-				observer.observe(section);
-			}
-		} while (section === null);
-	});
+	let transition = useTransitionIn(() => section);
 </script>
 
 <Width>
@@ -109,25 +85,29 @@
 		</div>
 		<div class="grid grid-cols-4 gap-4 gap-y-8">
 			{#each tools as tool, index}
-				{@render card(tool, index)}
+				{@render cardWrapper(tool, index)}
 			{/each}
 		</div>
 	</section>
 </Width>
 
-{#snippet card(tool: Tool, index: number)}
-	{#if showTechnologies}
-		<div in:fly={{ y: 40, duration: 1000, delay: 50 * index }}>
-			<div class="m-auto mb-2 grid size-12 items-center rounded-lg border p-2 {tool.options.bg}">
-				<img
-					src={`/img/logos/${tool.file}`}
-					alt={tool.name}
-					class="aspect-square object-contain {tool.options.invert && 'dark:invert'}"
-				/>
-			</div>
-			<p class="text-center text-xs text-muted-foreground">{tool.name}</p>
+{#snippet card(tool: Tool, index: number, hidden: boolean = false)}
+	<div in:fly={{ y: 40, duration: 1000, delay: 50 * index }} class={`${hidden && 'invisible'}`}>
+		<div class="m-auto mb-2 grid size-12 items-center rounded-lg border p-2 {tool.options.bg}">
+			<img
+				src={`/img/logos/${tool.file}`}
+				alt={tool.name}
+				class="aspect-square object-contain {tool.options.invert && 'dark:invert'}"
+			/>
 		</div>
+		<p class="text-center text-xs text-muted-foreground">{tool.name}</p>
+	</div>
+{/snippet}
+
+{#snippet cardWrapper(tool: Tool, index: number)}
+	{#if transition.show}
+		{@render card(tool, index)}
 	{:else}
-		<div class="h-[40px]"></div>
+		{@render card(tool, index, true)}
 	{/if}
 {/snippet}
