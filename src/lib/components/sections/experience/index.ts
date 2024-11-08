@@ -3,6 +3,7 @@ export type Experience = {
 	company: {
 		name: string;
 		logo: string;
+		href: string;
 		bg: string;
 	};
 	location: string;
@@ -20,6 +21,7 @@ export const experiences: Experience[] = [
 		company: {
 			name: 'DNB',
 			logo: 'dnb.png',
+			href: 'https://www.dnb.no/',
 			bg: 'bg-teal-400/20'
 		},
 		location: 'Oslo, Norway',
@@ -35,6 +37,7 @@ export const experiences: Experience[] = [
 		company: {
 			name: 'Solwr',
 			logo: 'solwr.jpeg',
+			href: 'https://solwr.com/',
 			bg: 'bg-yellow-400/20'
 		},
 		location: 'Ålesund, Norway',

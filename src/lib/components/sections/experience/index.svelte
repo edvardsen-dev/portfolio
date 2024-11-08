@@ -2,9 +2,8 @@
 	import Width from '$lib/components/utils/width.svelte';
 	import { useTransitionIn } from '$lib/composables/useTransitionIn.svelte';
 	import { toHumanDate } from '$lib/utils';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import { experiences, type Experience } from '.';
-	import { cubicOut } from 'svelte/easing';
 
 	let section: HTMLElement | null = null;
 
@@ -27,11 +26,17 @@
 	{@const flyOptions = { x: 100 * flyDirection, duration: 1000 }}
 	<article in:fly={flyOptions} class="flex flex-col {hidden && 'invisible'}">
 		<div class="mb-2 flex flex-grow gap-4 rounded-lg border bg-card p-4">
-			<img
-				src={`/img/logos/${experience.company.logo}`}
-				alt={experience.company.name}
-				class="aspect-square size-20 object-contain {experience.company.bg} mb-2 border p-2"
-			/>
+			<a
+				href={experience.company.href}
+				target="_blank"
+				class="flex aspect-square size-20 items-center border p-2 {experience.company.bg}"
+			>
+				<img
+					src={`/img/logos/${experience.company.logo}`}
+					alt={experience.company.name}
+					class="object-contain"
+				/>
+			</a>
 			<div>
 				<h2 class="text-lg font-bold">{experience.company.name} - {experience.title}</h2>
 				<p class="mb-4 text-sm text-muted-foreground">
