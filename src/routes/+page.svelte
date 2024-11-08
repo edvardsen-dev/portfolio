@@ -5,6 +5,9 @@
 	import HideDongle from '$lib/components/ui/customs/mouse-dongle/hide-dongle.svelte';
 	import MouseDongle from '$lib/components/ui/customs/mouse-dongle/index.svelte';
 	import Experiences from '$lib/components/sections/experience/index.svelte';
+	import Projects from '$lib/components/sections/projects.svelte';
+
+	let { data } = $props();
 </script>
 
 <MouseDongle />
@@ -14,4 +17,5 @@
 		<Technologies2 />
 	</HideDongle>
 	<Experiences />
+	<Projects projects={data.projects} />
 </div>

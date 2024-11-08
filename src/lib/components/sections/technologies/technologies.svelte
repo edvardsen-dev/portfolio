@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Width from '$lib/components/utils/width.svelte';
 	import { useTransitionIn } from '$lib/composables/useTransitionIn.svelte';
-	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 
 	type Tool = {
