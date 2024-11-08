@@ -12,8 +12,8 @@
 </script>
 
 <Width>
-	<section bind:this={section} class="pb-4 pt-16 md:py-32">
-		<h1 class="mb-8 text-center text-3xl font-bold md:mb-16">Experience</h1>
+	<section bind:this={section} class="pt-16 md:pt-32" id="experience">
+		<h1 class="mb-8 text-center text-3xl font-bold md:mb-12">Experience</h1>
 		<div class="grid gap-16 md:grid-cols-2 md:gap-4">
 			{#each experiences as experience, index}
 				{@render cardWrapper(experience, index)}

@@ -7,9 +7,9 @@
 </script>
 
 <Width>
-	<section class="py-32">
-		<h1 class="mb-8 text-3xl font-bold">Projects</h1>
-		<div class="space-y-16 lg:space-y-8">
+	<section class="mt-24 md:mt-40" id="projects">
+		<h1 class="mb-8 text-4xl font-bold">Projects</h1>
+		<div class="space-y-16 lg:space-y-12">
 			{#each projects as project, index}
 				{@render card(project, index % 2 === 0)}
 			{/each}
@@ -39,9 +39,9 @@
 			style={`${!isEven && 'grid-column: 1 / 1; grid-row: 1 / 1'}`}
 		>
 			<div class="mb-2 flex items-center {isEven && 'lg:flex-row-reverse'} gap-4">
-				<h2 class="text-xl font-bold">{project.title}</h2>
+				<h2 class="text-2xl font-bold">{project.title}</h2>
 				{#if project.live}
-					<a href={project.live} class="flex items-center gap-1 text-primary">
+					<a href={project.live} target="_blank" class="flex items-center gap-1 text-primary">
 						<Radio class="size-4" />
 						Live
 					</a>
@@ -53,7 +53,9 @@
 				<p class="mb-4 leading-6">{project.description}</p>
 				<a href="/projects/{project.id}" class="underline">Read more</a>
 			</div>
-			<p class="text-sm text-muted-foreground">{project.stack.join(' • ')}</p>
+			<p class="text-sm text-muted-foreground {isEven && 'lg:text-right'}">
+				{project.stack.join(' • ')}
+			</p>
 		</div>
 	</article>
 {/snippet}

@@ -13,9 +13,7 @@
 <MouseDongle />
 <div class="min-h-[300vh]">
 	<Hero />
-	<HideDongle>
-		<Technologies2 />
-	</HideDongle>
+	<Technologies2 />
 	<Experiences />
 	<Projects projects={data.projects} />
 </div>

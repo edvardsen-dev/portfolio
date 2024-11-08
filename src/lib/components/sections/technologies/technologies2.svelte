@@ -79,22 +79,24 @@
 	let transition = useTransitionIn(() => section);
 </script>
 
-<Width>
-	<section bind:this={section} class="grid gap-16 py-16 md:grid-cols-2 md:gap-4 md:py-32">
-		<div>
-			<h1 class="mb-4 text-3xl font-bold">Technologies</h1>
-			<p class="text-sm text-muted-foreground">
-				Full-stack engineer focused on web development, using a range of technologies to build
-				seamless applications from front to back end.
-			</p>
-		</div>
-		<div class="grid grid-cols-4 gap-4 gap-y-8">
-			{#each tools as tool, index}
-				{@render cardWrapper(tool, index)}
-			{/each}
-		</div>
-	</section>
-</Width>
+<div class="bg-muted/40 backdrop-blur-sm">
+	<Width>
+		<section bind:this={section} class="grid gap-16 py-24 md:grid-cols-2 md:gap-4 md:py-32">
+			<div>
+				<h1 class="mb-4 text-4xl font-bold">Technologies</h1>
+				<p class="text-sm text-muted-foreground">
+					Full-stack engineer focused on web development, using a range of technologies to build
+					seamless applications from front to back end.
+				</p>
+			</div>
+			<div class="grid grid-cols-4 gap-4 gap-y-8">
+				{#each tools as tool, index}
+					{@render cardWrapper(tool, index)}
+				{/each}
+			</div>
+		</section>
+	</Width>
+</div>
 
 {#snippet card(tool: Tool, index: number, hidden: boolean = false)}
 	<div in:fly={{ y: 40, duration: 1000, delay: 50 * index }} class={`${hidden && 'invisible'}`}>

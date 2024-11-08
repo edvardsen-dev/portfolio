@@ -56,7 +56,7 @@ export const projects: Project[] = [
 		active: true,
 		title: 'Trace Voice Pick',
 		description:
-			'For my bachelor’s thesis, I developed an iOS app using SwiftUI to streamline product picking in warehouses. The app allowed employees to use both voice and touch interfaces for smoother operations. I also implemented a Spring Boot API to support a full warehouse management system.',
+			"My bachelor's thesis was a group project where we developed an iOS app using SwiftUI to streamline product picking in warehouses. The app allowed employees to use both voice and touch interfaces for smoother operations. We also implemented a Spring Boot API to support a full warehouse management system.",
 		thumbnail: {
 			name: 'figma-sketches.PNG',
 			alt: 'Figma sketches of the iOS application'

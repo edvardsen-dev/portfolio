@@ -2,7 +2,9 @@ import type { ProjectOverview } from '$lib/dtos';
 import { projects } from '$lib/server/data/projects';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ setHeaders }) => {
+	setHeaders({ 'Cache-Control': 'max-age=600' });
+
 	return {
 		projects: projects
 			.filter((p) => p.active)
