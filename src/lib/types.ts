@@ -18,7 +18,7 @@ export type Project = {
 	}[];
 	live: string | null;
 	content: {
-		title: string | null;
+		title?: string;
 		text: string[];
 	}[];
 };

@@ -3,7 +3,8 @@
 	import { useTransitionIn } from '$lib/composables/useTransitionIn.svelte';
 	import { toHumanDate } from '$lib/utils';
 	import { fly } from 'svelte/transition';
-	import { experiences, type Experience } from '.';
+	import { experiences } from '.';
+	import type { Experience } from '$lib/types';
 
 	let section: HTMLElement | null = null;
 
@@ -11,7 +12,7 @@
 </script>
 
 <Width>
-	<section bind:this={section} class="py-32">
+	<section bind:this={section} class="pb-4 pt-16 md:py-32">
 		<h1 class="mb-8 text-center text-3xl font-bold md:mb-16">Experience</h1>
 		<div class="grid gap-16 md:grid-cols-2 md:gap-4">
 			{#each experiences as experience, index}
