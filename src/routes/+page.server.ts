@@ -1,8 +1,8 @@
 import type { ProjectOverview } from '$lib/dtos';
 import { projects } from '$lib/server/data/projects';
-import type { PageServerLoad } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ setHeaders }) => {
+export const load: PageServerLoad = async ({ cookies, setHeaders }) => {
 	setHeaders({ 'Cache-Control': 'max-age=600' });
 
 	return {
@@ -17,4 +17,15 @@ export const load: PageServerLoad = async ({ setHeaders }) => {
 				live: p.live
 			})) as ProjectOverview[]
 	};
+};
+
+export const actions: Actions = {
+	setStarWarsMode: async ({ url, cookies }) => {
+		const swMode = url.searchParams.get('sw-mode') === 'true';
+
+		cookies.set('sw-mode', swMode ? 'true' : 'false', {
+			path: '/',
+			maxAge: 60 * 60 * 24 * 365
+		});
+	}
 };

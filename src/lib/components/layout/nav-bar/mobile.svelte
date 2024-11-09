@@ -2,7 +2,7 @@
 	import * as Sheet from '$lib/components/ui/sheet/index.js';
 	import { Menu } from 'lucide-svelte';
 	import { links, socials } from '..';
-	import ThemeToggle from '$lib/components/ui/customs/theme-toggle.svelte';
+	import ThemeToggle from '$lib/components/ui/customs/theme-toggle/index.svelte';
 
 	let open = $state(false);
 </script>

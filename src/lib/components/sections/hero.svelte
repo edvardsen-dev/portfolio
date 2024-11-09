@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
 	import { fly } from 'svelte/transition';
 	import Button from '../ui/button/button.svelte';
 	import Width from '../utils/width.svelte';
 	import { onMount } from 'svelte';
 	import { Github, Linkedin, Mail } from 'lucide-svelte';
-	import MouseTrail from '../ui/customs/mouse-trail.svelte';
+	import StarWarsModeToggle from '../ui/customs/star-wars-mode-toggle.svelte';
 
 	const transition = {
 		y: 40,
@@ -18,14 +18,15 @@
 	});
 </script>
 
-<MouseTrail />
 <Width>
 	<header class="grid min-h-screen content-center md:flex md:items-center md:justify-between">
 		{#if loaded}
 			<div class="mb-8">
 				<h1 class="mb-8 flex flex-col uppercase">
 					<span in:fly={transition}>Hi 👋, I'm</span>
-					<span in:fly={{ ...transition, delay: 100 }} class="text-4xl font-extrabold md:text-6xl"
+					<span
+						in:fly={{ ...transition, delay: 100 }}
+						class="sw-mode:text-purple-400 text-4xl font-extrabold md:text-6xl"
 						>Joakim<br />Edvardsen</span
 					>
 				</h1>
@@ -61,12 +62,17 @@
 					</div>
 				</div>
 			</div>
-			<img
-				in:fly={{ ...transition, duration: 1500 }}
-				src="/img/profile_pictures/profile_pic_circles.png"
-				alt="Joakim Edvardsen"
-				class="w-[150px] md:w-[200px] lg:w-[300px]"
-			/>
+			<div class="group relative">
+				<StarWarsModeToggle
+					class="absolute left-7 top-7 -rotate-45 transition-transform group-hover:-translate-x-5 group-hover:-translate-y-5 max-lg:hidden"
+				/>
+				<img
+					in:fly={{ ...transition, duration: 1500 }}
+					src="/img/profile_pictures/profile_pic_circles.png"
+					alt="Joakim Edvardsen"
+					class="pointer-events-none relative z-10 w-[150px] md:w-[200px] lg:w-[300px]"
+				/>
+			</div>
 		{/if}
 	</header>
 </Width>
