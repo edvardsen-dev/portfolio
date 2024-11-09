@@ -8,10 +8,10 @@
 	<a href="/" aria-label="Go to home page" class="absolute left-0 top-3 h-12 w-24 cursor-pointer">
 		<img src="/img/signature.png" alt="Logo" class="h-full w-full object-cover dark:invert" />
 	</a>
-	<div class="md:hidden">
+	<div class="lg:hidden">
 		<Mobile />
 	</div>
-	<div class="max-md:hidden">
+	<div class="max-lg:hidden">
 		<Desktop />
 	</div>
 </Width>

@@ -5,6 +5,7 @@
 	import MouseDongle from '$lib/components/ui/customs/mouse-dongle/index.svelte';
 	import Experiences from '$lib/components/sections/experience/index.svelte';
 	import Projects from '$lib/components/sections/projects.svelte';
+	import ThemeToggle from '$lib/components/ui/customs/theme-toggle.svelte';
 
 	let { data } = $props();
 </script>
