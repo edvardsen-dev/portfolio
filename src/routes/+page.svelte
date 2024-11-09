@@ -11,7 +11,7 @@
 	let { data } = $props();
 </script>
 
-<MouseDongle />
+<!-- <MouseDongle /> -->
 <div class="min-h-[300vh]">
 	<Hero />
 	<Technologies2 />

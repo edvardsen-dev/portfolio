@@ -4,6 +4,7 @@
 	import Width from '../utils/width.svelte';
 	import { onMount } from 'svelte';
 	import { Github, Linkedin, Mail } from 'lucide-svelte';
+	import MouseTrail from '../ui/customs/mouse-trail.svelte';
 
 	const transition = {
 		y: 40,
@@ -17,6 +18,7 @@
 	});
 </script>
 
+<MouseTrail />
 <Width>
 	<header class="grid min-h-screen content-center md:flex md:items-center md:justify-between">
 		{#if loaded}

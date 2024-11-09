@@ -11,9 +11,11 @@
 	let isMobile = $derived(viewportWidth < 768);
 
 	onMount(() => {
-		setInterval(() => {
+		const interval = setInterval(() => {
 			rotation++;
 		}, 10);
+
+		return () => clearInterval(interval);
 	});
 
 	$effect(() => {
