@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 	import { Github, Linkedin, Mail } from 'lucide-svelte';
 	import StarWarsModeToggle from '../ui/customs/star-wars-mode-toggle.svelte';
+	import { swMode } from '$lib/composables/useSwMode.svelte';
 
 	const transition = {
 		y: 40,
@@ -18,17 +19,26 @@
 	});
 </script>
 
-<Width>
-	<header class="grid min-h-screen content-center md:flex md:items-center md:justify-between">
+<header class="relative">
+	<Width class="grid min-h-screen content-center md:flex md:items-center md:justify-between">
 		{#if loaded}
 			<div class="mb-8">
-				<h1 class="mb-8 flex flex-col uppercase">
+				<h1 class="group mb-8 flex flex-col uppercase" aria-label="Hi, I'm Joakim Edvardsen">
 					<span in:fly={transition}>Hi 👋, I'm</span>
 					<span
 						in:fly={{ ...transition, delay: 100 }}
 						class="sw-mode:text-purple-400 text-4xl font-extrabold md:text-6xl"
-						>Joakim<br />Edvardsen</span
 					>
+						Joakim
+						<br />
+						<div class="relative">
+							<span class="pointer-events-none relative z-20">Edvardsen</span>
+							<div class="absolute top-3 z-10 h-full w-full bg-background"></div>
+							<StarWarsModeToggle
+								class="absolute -top-4 right-16 transition-transform group-hover:-translate-y-4"
+							/>
+						</div>
+					</span>
 				</h1>
 				<h2 in:fly={{ ...transition, delay: 200 }} class="mb-4 font-bold uppercase text-primary">
 					Full stack software engineer
@@ -62,17 +72,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="group relative">
-				<StarWarsModeToggle
-					class="absolute left-7 top-7 -rotate-45 transition-transform group-hover:-translate-x-5 group-hover:-translate-y-5 max-lg:hidden"
-				/>
-				<img
-					in:fly={{ ...transition, duration: 1500 }}
-					src="/img/profile_pictures/profile_pic_circles.png"
-					alt="Joakim Edvardsen"
-					class="pointer-events-none relative z-10 w-[150px] md:w-[200px] lg:w-[300px]"
-				/>
-			</div>
+
+			<img
+				in:fly={{ ...transition, duration: 1500 }}
+				src="/img/profile_pictures/profile_pic_circles.png"
+				alt="Joakim Edvardsen"
+				class="pointer-events-none relative z-10 w-[150px] md:w-[200px] lg:w-[300px]"
+			/>
 		{/if}
-	</header>
-</Width>
+	</Width>
+</header>
