@@ -5,8 +5,11 @@
 	import Footer from '$lib/components/layout/footer.svelte';
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
+	import { swMode } from '$lib/composables/useSwMode.svelte';
 
-	let { children } = $props();
+	let { data, children } = $props();
+
+	swMode.isActive = data?.swMode ?? false;
 
 	onMount(() => {
 		if (!dev) {
