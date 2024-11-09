@@ -6,8 +6,15 @@
 
 	let showDongle = $state(false);
 	let viewportWidth = $state(0);
+	let rotation = $state(0);
 
 	let isMobile = $derived(viewportWidth < 768);
+
+	onMount(() => {
+		setInterval(() => {
+			rotation++;
+		}, 10);
+	});
 
 	$effect(() => {
 		if (isMobile) showDongle = false;
@@ -36,6 +43,6 @@
 		src="/img/baby-yoda.png"
 		alt="Baby yoda"
 		class="pointer-events-none fixed h-14 w-14"
-		style="top: {$donglePosition.y}px; left: {$donglePosition.x}px;"
+		style="top: {$donglePosition.y}px; left: {$donglePosition.x}px; transform: rotate({rotation}deg);"
 	/>
 {/if}
