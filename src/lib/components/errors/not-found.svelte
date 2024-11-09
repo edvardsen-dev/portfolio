@@ -3,5 +3,5 @@
 		<h1 class="mb-2 text-3xl font-extrabold uppercase">404 Not Found</h1>
 		<p>This is not the page you are looking for.</p>
 	</div>
-	<img src="/img/obi-wan.png" alt="Obi-Wan Kenobi" class="size-[300px] object-cover" />
+	<img src="/img/sw/obi-wan.png" alt="Obi-Wan Kenobi" class="size-[300px] object-cover" />
 </div>

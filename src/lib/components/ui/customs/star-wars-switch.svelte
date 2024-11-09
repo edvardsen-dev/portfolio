@@ -5,7 +5,7 @@
 </script>
 
 <button class="flex w-[112px] items-center" onclick={() => (checked = !checked)}>
-	<img src="/img/luke-lightsaber.png" alt="Luke's lightsaber" class="z-10 w-8" />
+	<img src="/img/sw/luke-lightsaber.png" alt="Luke's lightsaber" class="z-10 w-8" />
 	{#if checked}
 		<div
 			in:slide={{ duration: 200, axis: 'x' }}

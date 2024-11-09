@@ -5,7 +5,6 @@
 	import { onMount } from 'svelte';
 	import { Github, Linkedin, Mail } from 'lucide-svelte';
 	import StarWarsModeToggle from '../ui/customs/star-wars-mode-toggle.svelte';
-	import { swMode } from '$lib/composables/useSwMode.svelte';
 
 	const transition = {
 		y: 40,
@@ -27,7 +26,7 @@
 					<span in:fly={transition}>Hi 👋, I'm</span>
 					<span
 						in:fly={{ ...transition, delay: 100 }}
-						class="sw-mode:text-purple-400 text-4xl font-extrabold md:text-6xl"
+						class="text-4xl font-extrabold sw-mode:text-purple-400 md:text-6xl"
 					>
 						Joakim
 						<br />

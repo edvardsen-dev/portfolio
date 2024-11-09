@@ -20,6 +20,6 @@
 	class={clazz}
 >
 	<button type="submit" class="cursor-pointer" aria-label="Toggle star wars mode">
-		<img src="/img/baby-yoda.png" alt="Baby Yoda" class="h-16" />
+		<img src="/img/sw/baby-yoda.png" alt="Baby Yoda" class="h-16" />
 	</button>
 </form>

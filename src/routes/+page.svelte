@@ -13,6 +13,7 @@
 {#if swMode.isActive}
 	<MouseDongle />
 {/if}
+
 <div class="min-h-[300vh]">
 	<Hero />
 	<Technologies />

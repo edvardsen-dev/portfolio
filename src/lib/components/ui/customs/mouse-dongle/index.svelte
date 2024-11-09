@@ -42,9 +42,9 @@
 
 {#if showDongle}
 	<img
-		src="/img/x-wing.png"
+		src="/img/sw/x-wing-2.png"
 		alt="Baby yoda"
-		class="pointer-events-none fixed z-20 size-20"
+		class="pointer-events-none fixed z-20 size-20 object-contain"
 		style="top: {$donglePosition.y}px; left: {$donglePosition.x}px;"
 	/>
 {/if}
