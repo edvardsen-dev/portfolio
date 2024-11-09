@@ -9,7 +9,7 @@
 	let { children } = $props();
 
 	onMount(() => {
-		if (true) {
+		if (!dev) {
 			console.clear();
 			console.log(
 				'%c Understand this code, you do. Debug you must, young Padawan - Master Yoda',
