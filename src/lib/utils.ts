@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function toHumanDate(date: Date) {
-	return date.toLocaleDateString('en-UK', { month: 'long', year: 'numeric' });
+	return date.toLocaleDateString('en-UK', { month: 'long', year: 'numeric', day: 'numeric' });
 }
 
 export function toHumanDateTime(date: Date) {
