@@ -5,6 +5,7 @@ export type Project = {
 	title: string;
 	description: string;
 	updatedAt: Date;
+	imgBasePath: string;
 	thumbnail: Image;
 	images: Image[];
 	stack: string[];

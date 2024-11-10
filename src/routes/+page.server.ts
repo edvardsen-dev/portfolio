@@ -10,6 +10,7 @@ export const load: PageServerLoad = async ({ cookies, setHeaders }) => {
 				id: p.id,
 				title: p.title,
 				description: p.description,
+				imgBasePath: p.imgBasePath,
 				thumbnail: p.thumbnail,
 				stack: p.stack,
 				live: p.live

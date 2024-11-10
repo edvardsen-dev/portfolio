@@ -18,7 +18,6 @@
 </Width>
 
 {#snippet card(project: ProjectOverview, isEven: boolean)}
-	{@const imgDir = project.title.toLowerCase().replaceAll(' ', '-')}
 	<article class="items-center lg:grid lg:grid-cols-2 {!isEven && ''}">
 		<a
 			href="/projects/{project.id}"
@@ -29,7 +28,7 @@
 				class="absolute inset-0 transition-colors group-hover:bg-transparent dark:bg-neutral-950/60"
 			></div>
 			<img
-				src="/img/projects/{imgDir}/{project.thumbnail.name}"
+				src="{project.imgBasePath}{project.thumbnail.name}"
 				alt={project.thumbnail.alt}
 				class="aspect-video object-cover"
 			/>

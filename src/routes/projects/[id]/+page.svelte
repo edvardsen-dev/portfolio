@@ -6,11 +6,8 @@
 
 	let { data } = $props();
 
-	const imgDir = data.project.title.toLowerCase().replaceAll(' ', '-');
-	const fullImgDir = `/img/projects/${imgDir}`;
-
 	const carouselImages = data.project.images.map((img) => ({
-		src: `${fullImgDir}/${img.name}`,
+		src: `${data.project.imgBasePath}/${img.name}`,
 		alt: img.alt
 	}));
 </script>
