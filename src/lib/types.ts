@@ -4,6 +4,7 @@ export type Project = {
 	active: boolean;
 	title: string;
 	description: string;
+	updatedAt: Date;
 	thumbnail: Image;
 	images: Image[];
 	stack: string[];

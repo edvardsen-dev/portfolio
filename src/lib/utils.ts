@@ -6,5 +6,15 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function toHumanDate(date: Date) {
-	return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+	return date.toLocaleDateString('no-NO', { month: 'long', year: 'numeric' });
+}
+
+export function toHumanDateTime(date: Date) {
+	return date.toLocaleDateString('no-NO', {
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric',
+		hour: '2-digit',
+		minute: '2-digit'
+	});
 }

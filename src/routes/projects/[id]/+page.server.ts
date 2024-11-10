@@ -11,8 +11,6 @@ export const load: PageServerLoad = async ({ params, setHeaders }) => {
 		error(404, 'Project not found');
 	}
 
-	setHeaders({ 'Cache-Control': 'max-age=600' });
-
 	return {
 		project
 	};

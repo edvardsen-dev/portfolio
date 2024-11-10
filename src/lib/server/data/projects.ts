@@ -8,16 +8,20 @@ export const projects: Project[] = [
 		title: 'TF2DLE',
 		description:
 			'TF2DLE is a Wordle like game for the online game TF2. With daily challenges that reset every day, the players are tasked to find the correct answer for the different game modes in as few guesses as possible.',
+		updatedAt: new Date('2024-11-11T12:23:00'),
 		thumbnail: {
 			name: 'home_screen.png',
 			alt: 'Home Screen'
 		},
 		images: [
-			{ name: 'figma-sketches.PNG', alt: 'Figma sketches of the iOS application' },
-			{ name: 'managment-pages.PNG', alt: 'Wrehouse management pages' },
-			{ name: 'profile-pages.PNG', alt: 'Profile pages' },
-			{ name: 'mati-trucking.jpeg', alt: 'Mateusz driving a truck' },
-			{ name: 'swift-page-diagram.png', alt: 'iOS application flow chart' }
+			{ name: 'home_screen.png', alt: 'Home screen' },
+			{ name: 'weapon-game-mode.PNG', alt: 'Weapon game mode' },
+			{ name: 'color-blind.PNG', alt: 'Color blind mode' },
+			{ name: 'weapon-2.PNG', alt: 'Weapon 2 game mode' },
+			{ name: 'weapon-2-complete.PNG', alt: 'Weapon 2 game mode completed' },
+			{ name: 'map-game-mode.PNG', alt: 'Map game mode' },
+			{ name: 'cosmetic-game-mode.PNG', alt: 'Cosmetic game mode' },
+			{ name: 'unusual-game-mode.PNG', alt: 'Unusual game mode' }
 		],
 		stack: ['Sveltekit', 'Postgresql', 'Prisma', 'Shadcn', 'Tailwindcss'],
 		contributers: [{ name: 'Joakim Edvardsen', href: 'https://github.com/jKm00' }],
@@ -57,19 +61,17 @@ export const projects: Project[] = [
 		title: 'Trace Voice Pick',
 		description:
 			"My bachelor's thesis was a group project where we developed an iOS app using SwiftUI to streamline product picking in warehouses. The app allowed employees to use both voice and touch interfaces for smoother operations. We also implemented a Spring Boot API to support a full warehouse management system.",
+		updatedAt: new Date('2024-11-11T12:23:00'),
 		thumbnail: {
 			name: 'figma-sketches.PNG',
 			alt: 'Figma sketches of the iOS application'
 		},
 		images: [
-			{ name: 'home_screen.png', alt: 'Home screen' },
-			{ name: 'weapon-game-mode', alt: 'Weapon game mode' },
-			{ name: 'color-blind.PNG', alt: 'Color blind mode' },
-			{ name: 'weapon-2.PNG', alt: 'Weapon 2 game mode' },
-			{ name: 'weapon-2-complete.PNG', alt: 'Weapon 2 game mode completed' },
-			{ name: 'map-game-mode.PNG', alt: 'Map game mode' },
-			{ name: 'cosmetic-game-mode.PNG', alt: 'Cosmetic game mode' },
-			{ name: 'unusual-game-mode.PNG', alt: 'Unusual game mode' }
+			{ name: 'figma-sketches.PNG', alt: 'Figma sketches of the iOS application' },
+			{ name: 'managment-pages.PNG', alt: 'Wrehouse management pages' },
+			{ name: 'profile-pages.PNG', alt: 'Profile pages' },
+			{ name: 'mati-trucking.jpeg', alt: 'Mateusz driving a truck' },
+			{ name: 'swift-page-diagram.png', alt: 'iOS application flow chart' }
 		],
 		stack: ['SwiftUI', 'Spring-Boot', 'Postgresql', 'Docker', 'Keycloak'],
 		contributers: [
@@ -118,11 +120,27 @@ export const projects: Project[] = [
 		live: null,
 		content: [
 			{
+				title: 'Introduction',
 				text: [
-					'In my bachelor thesis, our team focused on developing a comprehensive solution to enhance the productivity of employees in warehouses. These employees are responsible for plucking products from shelves and loading them onto pallets before shipping them to local grocery stores. Currently, they rely solely on a voice-based system, where they communicate through voice commands. However, we aimed to revolutionize this process by creating a mobile application that combines both voice and touch interfaces. This empowers employees to choose the interface that best suits their needs, ensuring a more efficient workflow. While the voice interface offers hands-free operation for driving trucks and plucking products, the touch interface accelerates more complex actions.',
-					'Our final product was an iOS application that can be easily downloaded by anyone. The application provides users with the ability to create their own accounts and configure their warehouses with specific locations, products, and employees. Furthermore, we implemented an invitations feature, enabling warehouse leaders to invite other users to join their warehouses. This functionality fosters collaboration and streamlines communication within and across warehouses. Overall, the project was a resounding success, meeting and exceeding the requirements and requests of our employees.',
+					'In my bachelor thesis, our team focused on developing a comprehensive solution to enhance the productivity of employees in warehouses. These employees are responsible for plucking products from shelves and loading them onto pallets before shipping them to local grocery stores. Currently, they rely solely on a voice-based system, where they communicate through voice commands. However, we aimed to revolutionize this process by creating a mobile application that combines both voice and touch interfaces. This empowers employees to choose the interface that best suits their needs, ensuring a more efficient workflow. While the voice interface offers hands-free operation for driving trucks and plucking products, the touch interface accelerates more complex actions.'
+				]
+			},
+			{
+				title: 'Results',
+				text: [
+					'Our final product was an iOS application that can be easily downloaded by anyone. The application provides users with the ability to create their own accounts and configure their warehouses with specific locations, products, and employees. Furthermore, we implemented an invitations feature, enabling warehouse leaders to invite other users to join their warehouses. This functionality fosters collaboration and streamlines communication within and across warehouses. Overall, the project was a resounding success, meeting and exceeding the requirements and requests of our employees.'
+				]
+			},
+			{
+				title: 'Thoughts and Reflections',
+				text: [
 					'Throughout the development process, our team gained valuable insights and knowledge. We encountered various challenges and learned to navigate them effectively. By working on this project, we honed our skills in iOS application development using SwiftUI, as well as in designing and implementing a robust Spring Boot API to support the warehouse management system. Additionally, we gained a deeper understanding of the user experience and the importance of providing flexible interface options to cater to diverse user preferences and workflows.',
-					'The bachelor thesis project not only allowed us to showcase our technical capabilities but also highlighted our ability to understand and address the needs of end-users. By actively involving employees and incorporating their feedback, we ensured that the final product aligned with their requirements and expectations. This experience further solidified our passion for software development and reinforced the value of creating user-centered solutions.',
+					'The bachelor thesis project not only allowed us to showcase our technical capabilities but also highlighted our ability to understand and address the needs of end-users. By actively involving employees and incorporating their feedback, we ensured that the final product aligned with their requirements and expectations. This experience further solidified our passion for software development and reinforced the value of creating user-centered solutions.'
+				]
+			},
+			{
+				title: 'Conclusion',
+				text: [
 					'Overall, our bachelor thesis project was a significant achievement, both in terms of technical implementation and fulfilling the needs of warehouse employees. We are proud of the final product we delivered and the knowledge we acquired throughout the process, paving the way for future opportunities in the field of software development.'
 				]
 			}

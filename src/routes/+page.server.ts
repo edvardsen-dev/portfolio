@@ -3,8 +3,6 @@ import { projects } from '$lib/server/data/projects';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ cookies, setHeaders }) => {
-	setHeaders({ 'Cache-Control': 'max-age=600' });
-
 	return {
 		projects: projects
 			.filter((p) => p.active)

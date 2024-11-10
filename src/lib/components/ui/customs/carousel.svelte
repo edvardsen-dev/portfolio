@@ -2,10 +2,9 @@
 	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import Progress from '../progress/progress.svelte';
-	import { tweened } from 'svelte/motion';
-	import { linear } from 'svelte/easing';
+	import { Button } from '../button';
 
-	const images = [
+	const images2 = [
 		{ src: '/img/projects/tf2dle/home_screen.png', alt: 'Home screen' },
 		{ src: '/img/projects/tf2dle/weapon-game-mode.PNG', alt: 'Weapon game mode' },
 		{ src: '/img/projects/tf2dle/color-blind.PNG', alt: 'Color blind mode' },
@@ -15,6 +14,8 @@
 		{ src: '/img/projects/tf2dle/cosmetic-game-mode.PNG', alt: 'Cosmetic game mode' },
 		{ src: '/img/projects/tf2dle/unusual-game-mode.PNG', alt: 'Unusual game mode' }
 	];
+
+	let { images }: { images: { src: string; alt: string }[] } = $props();
 
 	let current = $state(0);
 	let prev = $derived((current + images.length - 1) % images.length);
@@ -66,40 +67,42 @@
 		<img
 			src={images[prev].src}
 			alt={images[prev].alt}
-			class={animating
+			class="aspect-video w-full bg-muted object-contain {animating
 				? direction === 'r'
 					? '-translate-x-[200%] transition-transform'
 					: '-translate-x-0 transition-transform'
-				: '-translate-x-full'}
+				: '-translate-x-full'}"
 		/>
 		<img
 			src={images[current].src}
 			alt={images[current].alt}
-			class={animating
+			class="aspect-video w-full bg-muted object-contain {animating
 				? direction === 'r'
 					? '-translate-x-[200%] transition-transform'
 					: '-translate-x-0 transition-transform'
-				: '-translate-x-full'}
+				: '-translate-x-full'}"
 		/>
 		<img
 			src={images[next].src}
 			alt={images[next].alt}
-			class={animating
+			class="aspect-video w-full bg-muted object-contain {animating
 				? direction === 'r'
 					? '-translate-x-[200%] transition-transform'
 					: '-translate-x-0 transition-transform'
-				: '-translate-x-full'}
+				: '-translate-x-full'}"
 		/>
 	</div>
 	<Progress value={progress / 5} max={100} class="mb-4" />
-	<div class="flex justify-center gap-4">
-		<button onclick={goPrev} disabled={animating}><ChevronLeft /></button>
+	<div class="flex items-center justify-center gap-4">
+		<Button onclick={goPrev} disabled={animating} variant="ghost" class="aspect-square p-1">
+			<ChevronLeft />
+		</Button>
 		<ul class="flex gap-1">
 			{#each Array.from({ length: images.length }) as _, index}
 				<li>
 					<button
 						onclick={() => (current = index)}
-						class="size-4 rounded-full bg-muted p-0.5"
+						class="size-4 rounded-full bg-muted p-0.5 hover:bg-accent"
 						aria-label="Skip to image {index + 1}"
 					>
 						{#if current === index}
@@ -109,6 +112,8 @@
 				</li>
 			{/each}
 		</ul>
-		<button onclick={goNext} disabled={animating}><ChevronRight /></button>
+		<Button onclick={goNext} disabled={animating} variant="ghost" class="aspect-square p-1">
+			<ChevronRight />
+		</Button>
 	</div>
 </div>
