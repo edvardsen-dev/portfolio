@@ -5,11 +5,11 @@
 	import Footer from '$lib/components/layout/footer.svelte';
 	import { onMount } from 'svelte';
 	import { dev } from '$app/environment';
-	import { swMode } from '$lib/composables/useSwMode.svelte';
+	import { setSwMode } from '$lib/context/sw-mode-context.svelte';
 
 	let { data, children } = $props();
 
-	swMode.isActive = data?.swMode ?? false;
+	setSwMode(data.swMode ?? false);
 
 	onMount(() => {
 		if (!dev) {

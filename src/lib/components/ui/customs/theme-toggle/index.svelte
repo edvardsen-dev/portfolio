@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { swMode } from '$lib/composables/useSwMode.svelte';
+	import { getSwMode } from '$lib/context/sw-mode-context.svelte';
 	import DefaultThemeToggle from './default-theme-toggle.svelte';
 	import SwThemeToggle from './sw-theme-toggle.svelte';
+
+	const swMode = getSwMode();
 </script>
 
 {#if swMode.isActive}

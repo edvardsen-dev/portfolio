@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { swMode } from '$lib/composables/useSwMode.svelte';
+	import { getSwMode } from '$lib/context/sw-mode-context.svelte';
 	import type { SubmitFunction } from '@sveltejs/kit';
 	import { fade } from 'svelte/transition';
 
 	let { class: clazz }: { class?: string } = $props();
+
+	const swMode = getSwMode();
 
 	const submitUpdateSwMode: SubmitFunction = ({ action }) => {
 		const value = action.searchParams.get('sw-mode') === 'true';

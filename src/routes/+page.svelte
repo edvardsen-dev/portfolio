@@ -5,9 +5,11 @@
 	import Projects from '$lib/components/sections/projects.svelte';
 	import HideDongle from '$lib/components/ui/customs/mouse-dongle/hide-dongle.svelte';
 	import MouseDongle from '$lib/components/ui/customs/mouse-dongle/index.svelte';
-	import { swMode } from '$lib/composables/useSwMode.svelte';
+	import { getSwMode } from '$lib/context/sw-mode-context.svelte';
 
 	let { data } = $props();
+
+	const swMode = getSwMode();
 </script>
 
 {#if swMode.isActive}
