@@ -326,5 +326,80 @@ export const projects: Project[] = [
 				]
 			}
 		]
+	},
+	{
+		id: 4,
+		order: 4,
+		active: true,
+		title: 'Portfolio',
+		description:
+			'This is the project you are currently visiting. Wanted to try out and learn some new technologies as well as I needed a portfolio to get my name out there. Since this was a solo project I could select the exact technologies I was most interrested in and learned a lot along the way. Such as end-to-end testing, github actions and server-side vs client-side rendering. Had a ton of fun with this project.',
+		updatedAt: new Date('2024-11-11T20:44:00'),
+		imgBasePath: getProjectImgBasePath('portfolio'),
+		thumbnail: {
+			name: 'portfolio-thumbnail-cropped-compressed.jpg',
+			alt: 'Portfolio front page'
+		},
+		images: [
+			{
+				name: 'landing-page-compressed.jpg',
+				alt: 'Portfolio landing page'
+			},
+			{
+				name: 'about-compressed.jpg',
+				alt: 'About section'
+			},
+			{
+				name: 'technologies-compressed.jpg',
+				alt: 'Technology cards'
+			},
+			{
+				name: 'projects-compressed.jpg',
+				alt: 'Projects list'
+			},
+			{
+				name: 'project-top-compressed.jpg',
+				alt: 'Specific project landing page'
+			},
+			{
+				name: 'project-body-compressed.jpg',
+				alt: 'Content of specific project'
+			},
+			{
+				name: 'resume-compressed.jpg',
+				alt: 'Resume'
+			},
+			{
+				name: 'footer-compressed.jpg',
+				alt: 'Portfolio footer'
+			}
+		],
+		stack: ['SvelteKit', 'Cypress', 'TypeScript', 'Sass'],
+		contributers: [
+			{
+				name: 'jKm00',
+				href: 'https://github.com/jKm00'
+			}
+		],
+		features: ['Server-side rendering', 'On load and scroll animations', 'Data prefecting'],
+		resources: [
+			{
+				label: 'Repository: ',
+				href: 'https://github.com/jKm00/Personal-website'
+			}
+		],
+		live: 'https://edvardsen.dev',
+		content: [
+			{
+				text: [
+					'My portfolio was a small personal project I started, that only I have worked on. The result is the website you are currently visiting.',
+					'Because I was the only person involved in this project, I had the full freedom to choose wathever technologies I wanted. When deciding, I recently had some experience with both React and Vue. But I had also recently heard a lot about Svelte and SvelteKit. For me it seemed so simple and elegant and I wanted to try it out for myself. Thats the main reason why this website is build using SvelteKit.',
+					"I also wanted to learn more about testing, continuous integration and continuous delivery. Cypress was a tool I had just heard about and started looking more into. I decided to use it for testing in this project, and have not regretted it. Together with cypress I also looked into and added piplines/actions to my GitHub. So whenever I pushed some new code to the repository, it automatically get's build, tested and then published if every test are passed.",
+					'The hardest task for this project was probably to come up with a design I was happy with. I wanted something that I was genuenlly happy with and something that fit me as well as it was easy to understand and use. My first version looked OK+, but it had some flaws. Specially for readability. Some of the fonts were very thin and the contrasts between the background and forground made it a little to hard to read.',
+					'I completely redesigned the whole page for version 2.0. This is the current design used today. Although I was happy with the first outcome, there was a lot of tweeking throughout the process.',
+					"I'm really happy with the result of the current version. But I also think this is a project I will continue developing as I get new ideas for things I want to add."
+				]
+			}
+		]
 	}
 ] as const;
