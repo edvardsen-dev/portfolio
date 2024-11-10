@@ -6,11 +6,11 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function toHumanDate(date: Date) {
-	return date.toLocaleDateString('no-NO', { month: 'long', year: 'numeric' });
+	return date.toLocaleDateString('en-UK', { month: 'long', year: 'numeric' });
 }
 
 export function toHumanDateTime(date: Date) {
-	return date.toLocaleDateString('no-NO', {
+	return date.toLocaleDateString('en-UK', {
 		day: 'numeric',
 		month: 'long',
 		year: 'numeric',

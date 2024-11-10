@@ -17,8 +17,8 @@ export const links = [
 	{ name: 'Home', href: '/', icon: Home },
 	{ name: 'Experience', href: '/#experience', icon: Info },
 	{ name: 'Projects', href: '/#projects', icon: FolderCode },
-	{ name: 'Resume', href: '/resume', icon: ScrollText },
-	{ name: 'Quiz', href: '/quiz', icon: Gamepad }
+	{ name: 'Resume', href: '/resume', icon: ScrollText }
+	// { name: 'Quiz', href: '/quiz', icon: Gamepad }
 ];
 
 export const contacts = [
