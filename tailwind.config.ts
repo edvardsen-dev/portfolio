@@ -1,8 +1,6 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import type { Config } from 'tailwindcss';
 import tailwindcssAnimate from 'tailwindcss-animate';
-import plugin from 'tailwindcss';
-import { PluginCreator } from 'tailwindcss/types/config';
 
 const config: Config = {
 	darkMode: ['class'],
