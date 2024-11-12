@@ -34,7 +34,7 @@
 							<span class="pointer-events-none relative z-20">Edvardsen</span>
 							<div class="absolute top-3 z-10 h-full w-full bg-background"></div>
 							<StarWarsModeToggle
-								class="absolute -top-4 right-16 transition-transform group-hover:-translate-y-4"
+								class="absolute -top-4 right-16 transition-transform group-hover:-translate-y-4 max-md:hidden"
 							/>
 						</div>
 					</span>
