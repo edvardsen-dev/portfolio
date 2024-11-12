@@ -61,7 +61,7 @@
 			</div>
 		</section>
 		{#each data.project.content as content}
-			<section class="mb-12 w-[80ch]">
+			<section class="mb-12 max-w-[80ch]">
 				{#if content.title}
 					<h2 class="mb-4 text-xl font-bold">{content.title}</h2>
 				{/if}
