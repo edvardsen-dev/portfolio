@@ -32,6 +32,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build-and-publish
+    env:
+      APP_DIR: /root/apps/portfolio
 
     steps:
       - name: Checkout repository
@@ -41,6 +43,20 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Create directory if not already exists
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          envs: APP_DIR
+          script: |
+            mkdir -p $APP_DIR
+
+      - name: Copy docker-compose file to VM
+        run: |
+          scp -o StrictHostKeyChecking=no ./docker-compose.prod.yaml ${{ secrets.SSH_USER }}@${{ secrets.VM_IP }}:$APP_DIR/docker-compose.prod.yaml
 
       - name: Deploy to VM
         uses: appleboy/ssh-action@v1.1.0
@@ -56,11 +72,14 @@ jobs:
             # Log in to GitHub Container Registry
             echo "${GHCR_TOKEN}" | docker login ghcr.io -u $GHCR_USER --password-stdin
 
-            # Pull the latest image
-            docker pull $IMAGE_URL
+            # Change directory
+            cd $APP_DIR
 
-            # Run new container (Replacing the old one)
-            docker run -d -p 3020:3000 --rm --name portfolio_app $IMAGE_URL
+            # Pull the lates images as per docker-compose.prod.yaml
+            docker-compose -f docker-compose.prod.yaml pull
 
-            # Clean up old images
+            # Run the docker-compose file with env variables
+            docker-compose -f docker-compose.prod.yaml up -d
+
+            # Clean up dangling images
             docker image prune -f

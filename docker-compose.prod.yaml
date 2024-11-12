@@ -1,0 +1,5 @@
+services:
+  app:
+    image: ghcr.io/edvardsen-dev/example-app/sveltekit:latest
+    ports:
+      - 3020:3000
