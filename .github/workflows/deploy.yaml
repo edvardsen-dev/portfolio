@@ -63,11 +63,12 @@ jobs:
         env:
           GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
           GHCR_USER: ${{ github.actor }}
+          ORIGIN: ${{ secrets.ORIGIN }}
         with:
           host: ${{ secrets.VM_IP }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          envs: GHCR_TOKEN, GHCR_USER, IMAGE_URL, APP_DIR
+          envs: GHCR_TOKEN, GHCR_USER, IMAGE_URL, APP_DIR, ORIGIN
           script: |
             # Log in to GitHub Container Registry
             echo "${GHCR_TOKEN}" | docker login ghcr.io -u $GHCR_USER --password-stdin
@@ -79,6 +80,7 @@ jobs:
             docker-compose -f docker-compose.prod.yaml pull
 
             # Run the docker-compose file with env variables
+            ORIGN=$ORIGIN \
             docker-compose -f docker-compose.prod.yaml up -d
 
             # Clean up dangling images

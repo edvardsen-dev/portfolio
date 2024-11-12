@@ -1,5 +1,7 @@
 services:
   app:
     image: ghcr.io/edvardsen-dev/portfolio/sveltekit:latest
+    environment:
+      ORIGIN: ${ORIGIN}
     ports:
       - 3020:3000
