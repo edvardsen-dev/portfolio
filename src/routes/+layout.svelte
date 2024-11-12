@@ -22,6 +22,11 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Joakim Edvardsen</title>
+	<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
+</svelte:head>
+
 <ModeWatcher />
 <NavBar />
 <div class="mb-[100vh] bg-background shadow">
