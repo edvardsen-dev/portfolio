@@ -6,6 +6,7 @@ export const load: PageServerLoad = async ({ cookies, setHeaders }) => {
 	return {
 		projects: projects
 			.filter((p) => p.active)
+			.sort((a, b) => a.order - b.order)
 			.map((p) => ({
 				id: p.id,
 				title: p.title,

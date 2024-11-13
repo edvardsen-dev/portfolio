@@ -7,7 +7,7 @@ export const load: PageServerLoad = async ({ params, setHeaders }) => {
 
 	const project = projects.find((project) => project.id === Number(id));
 
-	if (!project) {
+	if (!project || !project.active) {
 		error(404, 'Project not found');
 	}
 
