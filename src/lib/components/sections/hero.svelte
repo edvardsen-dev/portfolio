@@ -74,7 +74,7 @@
 
 			<img
 				in:fly={{ ...transition, duration: 1500 }}
-				src="/img/profile_pictures/profile_pic_circles.png"
+				src="/img/profile_pictures/profile_pic_circles_compressed.webp"
 				alt="Joakim Edvardsen"
 				class="pointer-events-none relative z-10 w-[150px] md:w-[200px] lg:w-[300px]"
 			/>
