@@ -1,23 +1,4 @@
-import type { ProjectOverview } from '$lib/dtos';
-import { projects } from '$lib/server/data/projects';
-import type { Actions, PageServerLoad } from './$types';
-
-export const load: PageServerLoad = async ({ cookies, setHeaders }) => {
-	return {
-		projects: projects
-			.filter((p) => p.active)
-			.sort((a, b) => a.order - b.order)
-			.map((p) => ({
-				id: p.id,
-				title: p.title,
-				description: p.description,
-				imgBasePath: p.imgBasePath,
-				thumbnail: p.thumbnail,
-				stack: p.stack,
-				live: p.live
-			})) as ProjectOverview[]
-	};
-};
+import type { Actions } from './$types';
 
 export const actions: Actions = {
 	setStarWarsMode: async ({ url, cookies }) => {

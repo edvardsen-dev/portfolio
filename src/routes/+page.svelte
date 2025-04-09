@@ -21,6 +21,8 @@
 	<Technologies />
 	<HideDongle>
 		<Experiences />
-		<Projects projects={data.projects} />
+		{#await data.projects then projects}
+			<Projects projects={projects} />
+		{/await}
 	</HideDongle>
 </div>
