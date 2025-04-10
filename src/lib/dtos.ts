@@ -1,14 +1,37 @@
-import type { Project } from './types';
+import type { Contributer, Resource } from './types';
 
-export type ProjectOverview = Pick<
-	Project,
-	'id' | 'title' | 'description' | 'thumbnail' | 'stack' | 'live' | 'imgBasePath'
->;
-
-export type AllProjectResponse = {
+export type ListRespone = {
 	page: number;
 	perPage: number;
 	totalItems: number;
 	totalPages: number;
-	items: Project[]
-}
+};
+
+export type ProjectResponse = {
+	id: string;
+	collectionId: string;
+	collectionName: string;
+	title: string;
+	description: string;
+	thumbnail: string;
+	images: string[];
+	live?: string;
+	meta: {
+		stack: string[];
+		contributers: Contributer[];
+		features: string[];
+		resources: Resource[];
+	};
+	content: {
+		sections: {
+			title?: string;
+			text: string[];
+		}[];
+	};
+	created: string;
+	updated: string;
+};
+
+export type ProjectsResponse = ListRespone & {
+	items: ProjectResponse[];
+};

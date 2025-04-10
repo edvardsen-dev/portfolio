@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { PUBLIC_CMS_BASE_PATH } from '$env/static/public';
 	import Width from '$lib/components/utils/width.svelte';
-	import type { ProjectOverview } from '$lib/dtos';
+	import type { Project } from '$lib/types';
 	import { Radio } from 'lucide-svelte';
 
-	let { projects }: { projects: ProjectOverview[] } = $props();
+	let { projects }: { projects: Project[] } = $props();
 </script>
 
 <Width>
@@ -17,7 +18,7 @@
 	</section>
 </Width>
 
-{#snippet card(project: ProjectOverview, isEven: boolean)}
+{#snippet card(project: Project, isEven: boolean)}
 	<article class="items-center lg:grid lg:grid-cols-2 {!isEven && ''}">
 		<a
 			href="/projects/{project.id}"
@@ -28,8 +29,8 @@
 				class="absolute inset-0 transition-colors group-hover:bg-transparent dark:bg-neutral-950/60"
 			></div>
 			<img
-				src="{project.imgBasePath}{project.thumbnail.name}"
-				alt={project.thumbnail.alt}
+				src="{PUBLIC_CMS_BASE_PATH}/api/files/{project.collectionId}/{project.id}/{project.thumbnail}"
+				alt={project.title}
 				class="aspect-video object-cover"
 			/>
 		</a>

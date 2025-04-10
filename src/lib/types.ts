@@ -1,33 +1,31 @@
 export type Project = {
-	id: number;
-	order: number;
-	active: boolean;
+	id: string;
+	collectionId: string;
+	collectionName: string;
 	title: string;
 	description: string;
 	updatedAt: Date;
-	imgBasePath: string;
-	thumbnail: Image;
-	images: Image[];
+	thumbnail: string;
+	images: string[];
 	stack: string[];
-	contributers: {
-		name: string;
-		href: string;
-	}[];
+	contributers: Contributer[];
 	features: string[];
-	resources: {
-		label: string;
-		href: string;
-	}[];
-	live: string | null;
+	resources: Resource[];
+	live?: string;
 	content: {
 		title?: string;
 		text: string[];
 	}[];
 };
 
-type Image = {
+export type Contributer = {
 	name: string;
-	alt: string;
+	href: string;
+};
+
+export type Resource = {
+	label: string;
+	href: string;
 };
 
 export type Experience = {
