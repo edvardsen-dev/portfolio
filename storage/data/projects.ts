@@ -1,8 +1,6 @@
-import type { Project } from '$lib/types';
-
 const getProjectImgBasePath = (dirName: string) => `/img/projects/${dirName}/`;
 
-export const projects: Project[] = [
+export const projects = [
 	{
 		id: 0,
 		order: 0,
