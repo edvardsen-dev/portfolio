@@ -3,19 +3,15 @@
 	import { onMount } from 'svelte';
 	import Progress from '../progress/progress.svelte';
 	import { Button } from '../button';
+	import type { Project } from '$lib/features/projects/types';
+	import { PUBLIC_CMS_BASE_PATH } from '$env/static/public';
 
-	const images2 = [
-		{ src: '/img/projects/tf2dle/home_screen.png', alt: 'Home screen' },
-		{ src: '/img/projects/tf2dle/weapon-game-mode.PNG', alt: 'Weapon game mode' },
-		{ src: '/img/projects/tf2dle/color-blind.PNG', alt: 'Color blind mode' },
-		{ src: '/img/projects/tf2dle/weapon-2.PNG', alt: 'Weapon 2 game mode' },
-		{ src: '/img/projects/tf2dle/weapon-2-complete.PNG', alt: 'Weapon 2 game mode completed' },
-		{ src: '/img/projects/tf2dle/map-game-mode.PNG', alt: 'Map game mode' },
-		{ src: '/img/projects/tf2dle/cosmetic-game-mode.PNG', alt: 'Cosmetic game mode' },
-		{ src: '/img/projects/tf2dle/unusual-game-mode.PNG', alt: 'Unusual game mode' }
-	];
+	let { project }: { project: Project } = $props();
 
-	let { images }: { images: { src: string; alt: string }[] } = $props();
+	const images = project.images.map((image) => ({
+		src: `${PUBLIC_CMS_BASE_PATH}/api/files/${project.collectionId}/${project.id}/${image}`,
+		alt: image
+	}));
 
 	let current = $state(0);
 	let prev = $derived((current + images.length - 1) % images.length);
