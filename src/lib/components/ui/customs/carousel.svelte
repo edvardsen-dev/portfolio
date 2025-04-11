@@ -3,15 +3,8 @@
 	import { onMount } from 'svelte';
 	import Progress from '../progress/progress.svelte';
 	import { Button } from '../button';
-	import type { Project } from '$lib/features/projects/types';
-	import { PUBLIC_CMS_BASE_PATH } from '$env/static/public';
 
-	let { project }: { project: Project } = $props();
-
-	const images = project.images.map((image) => ({
-		src: `${PUBLIC_CMS_BASE_PATH}/api/files/${project.collectionId}/${project.id}/${image}`,
-		alt: image
-	}));
+	let { images }: { images: { src: string; alt: string }[] } = $props();
 
 	let current = $state(1);
 	let animating = $state(false);
@@ -84,7 +77,7 @@
 			style="transform: translateX(-{current * 100}%)"
 		/>
 	</div>
-	<Progress value={progress / 5} max={100} class="mb-4" />
+	<Progress value={progress / 5} max={100} class="mb-2" />
 	<div class="flex items-center justify-center gap-4">
 		<Button onclick={goPrev} disabled={animating} variant="ghost" class="aspect-square p-1">
 			<ChevronLeft />

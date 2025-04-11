@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_CMS_BASE_PATH } from '$env/static/public';
 	import Carousel from '$lib/components/ui/customs/carousel.svelte';
 	import Width from '$lib/components/utils/width.svelte';
 	import { toHumanDateTime } from '$lib/utils';
@@ -7,10 +8,15 @@
 	let { data } = $props();
 
 	const { project } = data;
+
+	const images = project.images.map((image) => ({
+		src: `${PUBLIC_CMS_BASE_PATH}/api/files/${project.collectionId}/${project.id}/${image}`,
+		alt: image
+	}));
 </script>
 
 <Width class="pb-32 pt-24">
-	<Carousel {project} />
+	<Carousel {images} />
 	<article>
 		<section class="mb-8">
 			{#if project.live}
