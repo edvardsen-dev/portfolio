@@ -1,4 +1,4 @@
-import type { ListRespone } from '$lib/dtos';
+import type { ListResponse } from '$lib/dtos';
 import type { Contributer, Resource } from './types';
 
 export type ProjectResponse = {
@@ -26,6 +26,6 @@ export type ProjectResponse = {
 	updated: string;
 };
 
-export type ProjectsResponse = ListRespone & {
+export type ProjectsResponse = ListResponse & {
 	items: ProjectResponse[];
 };

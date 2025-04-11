@@ -4,7 +4,7 @@
 	import { toHumanDate } from '$lib/utils';
 	import { fly } from 'svelte/transition';
 	import { experiences } from '.';
-	import type { Experience } from '$lib/types';
+	import type { Experience } from '$lib/features/experiences/types';
 
 	let section: HTMLElement | null = null;
 
@@ -48,13 +48,15 @@
 				<p class="text-sm leading-7">{experience.description}</p>
 			</div>
 		</div>
-		<ul class="flex gap-4 self-center text-sm text-muted-foreground">
-			{#each experience.technologies as technology}
-				<li>
-					{technology}
-				</li>
-			{/each}
-		</ul>
+		{#if experience.technologies}
+			<ul class="flex gap-4 self-center text-sm text-muted-foreground">
+				{#each experience.technologies as technology}
+					<li>
+						{technology}
+					</li>
+				{/each}
+			</ul>
+		{/if}
 	</article>
 {/snippet}
 

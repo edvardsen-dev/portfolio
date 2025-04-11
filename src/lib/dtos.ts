@@ -1,4 +1,4 @@
-export type ListRespone = {
+export type ListResponse = {
 	page: number;
 	perPage: number;
 	totalItems: number;
