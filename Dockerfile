@@ -1,6 +1,9 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
+ARG PUBLIC_CMS_BASE_PATH
+ENV PUBLIC_CMS_BASE_PATH=$PUBLIC_CMS_BASE_PATH
+
 # Install pnpm
 RUN npm install -g pnpm
 
