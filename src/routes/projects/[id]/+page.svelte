@@ -1,36 +1,39 @@
 <script lang="ts">
+	import { PUBLIC_CMS_BASE_PATH } from '$env/static/public';
 	import Carousel from '$lib/components/ui/customs/carousel.svelte';
 	import Width from '$lib/components/utils/width.svelte';
-	import { toHumanDate, toHumanDateTime } from '$lib/utils';
-	import { Code, CodeXml, ExternalLink, Lightbulb, Radio, Users } from 'lucide-svelte';
+	import { toHumanDateTime } from '$lib/utils';
+	import { CodeXml, ExternalLink, Lightbulb, Radio, Users } from 'lucide-svelte';
 
 	let { data } = $props();
 
-	const carouselImages = data.project.images.map((img) => ({
-		src: `${data.project.imgBasePath}/${img.name}`,
-		alt: img.alt
+	const { project } = data;
+
+	const images = project.images.map((image) => ({
+		src: `${PUBLIC_CMS_BASE_PATH}/api/files/${project.collectionId}/${project.id}/${image}`,
+		alt: image
 	}));
 </script>
 
 <Width class="pb-32 pt-24">
-	<Carousel images={carouselImages} />
+	<Carousel {images} />
 	<article>
 		<section class="mb-8">
-			{#if data.project.live}
-				<a href={data.project.live} target="_blank" class="flex items-center gap-1 text-primary"
+			{#if project.live}
+				<a href={project.live} target="_blank" class="flex items-center gap-1 text-primary"
 					><Radio class="size-4" /> Live</a
 				>
 			{/if}
-			<h1 class="text-3xl font-extrabold">{data.project.title}</h1>
+			<h1 class="text-3xl font-extrabold">{project.title}</h1>
 			<p class="text-sm text-muted-foreground">
-				Last updated: {toHumanDateTime(data.project.updatedAt)}
+				Last updated: {toHumanDateTime(project.updatedAt)}
 			</p>
 		</section>
 		<section class="mb-12">
 			<div class="mb-8">
 				<h2 class="mb-2 flex items-center gap-2"><CodeXml />Technologies</h2>
 				<ul class="flex flex-wrap gap-x-2 gap-y-4">
-					{#each data.project.stack as tech}
+					{#each project.stack as tech}
 						<li class="rounded-full bg-muted px-4 py-1 text-xs text-muted-foreground">{tech}</li>
 					{/each}
 				</ul>
@@ -38,7 +41,7 @@
 			<div class="mb-8">
 				<h2 class="mb-2 flex items-center gap-2"><Lightbulb />Features</h2>
 				<ul class="flex flex-wrap gap-x-2 gap-y-4">
-					{#each data.project.features as feature}
+					{#each project.features as feature}
 						<li class="rounded-full bg-muted px-4 py-1 text-xs text-muted-foreground">
 							{feature}
 						</li>
@@ -48,7 +51,7 @@
 			<div>
 				<h2 class="mb-2 flex items-center gap-2"><Users />Contributers</h2>
 				<ul class="flex flex-wrap gap-x-2 gap-y-4">
-					{#each data.project.contributers as contributer}
+					{#each project.contributers as contributer}
 						<li
 							class="rounded-full bg-muted px-4 py-1 text-xs text-muted-foreground hover:bg-accent"
 						>
@@ -60,7 +63,7 @@
 				</ul>
 			</div>
 		</section>
-		{#each data.project.content as content}
+		{#each project.content as content}
 			<section class="mb-12 max-w-[80ch]">
 				{#if content.title}
 					<h2 class="mb-4 text-xl font-bold">{content.title}</h2>
@@ -73,7 +76,7 @@
 		<seciton>
 			<h2 class="mb-4 text-xl font-bold">Resources</h2>
 			<ul class="ml-6 list-disc space-y-1">
-				{#each data.project.resources as resource}
+				{#each project.resources as resource}
 					<li>
 						{resource.label}:
 						<a href={resource.href} target="_blank" class="text-primary underline"

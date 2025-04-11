@@ -1,6 +1,4 @@
-import type { Education, Experience } from '$lib/types';
-
-export const experiences: Experience[] = [
+export const experiences = [
 	{
 		title: 'Summer Intern',
 		company: {
@@ -89,7 +87,7 @@ export const experiences: Experience[] = [
 	}
 ] as const;
 
-export const educations: Education[] = [
+export const educations = [
 	{
 		title: 'Datateknologi',
 		date: {

@@ -1,6 +1,7 @@
 # Docker
 
 Dockerfile
+cms/Dockerfile
 .dockerignore
 
 # Git
@@ -8,6 +9,10 @@ Dockerfile
 .git
 .gitignore
 .gitattributes
+
+# Env
+.env
+.env.exmaple
 
 # Registeries
 
@@ -30,3 +35,4 @@ scripts
 # Tools
 
 .vscode
+storage/

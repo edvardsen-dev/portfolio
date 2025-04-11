@@ -4,33 +4,16 @@
 	import Progress from '../progress/progress.svelte';
 	import { Button } from '../button';
 
-	const images2 = [
-		{ src: '/img/projects/tf2dle/home_screen.png', alt: 'Home screen' },
-		{ src: '/img/projects/tf2dle/weapon-game-mode.PNG', alt: 'Weapon game mode' },
-		{ src: '/img/projects/tf2dle/color-blind.PNG', alt: 'Color blind mode' },
-		{ src: '/img/projects/tf2dle/weapon-2.PNG', alt: 'Weapon 2 game mode' },
-		{ src: '/img/projects/tf2dle/weapon-2-complete.PNG', alt: 'Weapon 2 game mode completed' },
-		{ src: '/img/projects/tf2dle/map-game-mode.PNG', alt: 'Map game mode' },
-		{ src: '/img/projects/tf2dle/cosmetic-game-mode.PNG', alt: 'Cosmetic game mode' },
-		{ src: '/img/projects/tf2dle/unusual-game-mode.PNG', alt: 'Unusual game mode' }
-	];
-
 	let { images }: { images: { src: string; alt: string }[] } = $props();
 
-	let current = $state(0);
-	let prev = $derived((current + images.length - 1) % images.length);
-	let next = $derived((current + 1) % images.length);
-
+	let current = $state(1);
 	let animating = $state(false);
-	let direction = $state<'l' | 'r'>('l');
-
 	let progress = $state(0);
 	let paused = $state(false);
 
 	onMount(() => {
 		const interval = setInterval(() => {
 			if (paused) return;
-
 			if (progress >= 500) {
 				goNext();
 				progress = 0;
@@ -38,25 +21,32 @@
 				progress++;
 			}
 		}, 10);
-
 		return () => clearInterval(interval);
 	});
 
 	async function goNext() {
 		animating = true;
-		direction = 'r';
+		current++;
+
 		setTimeout(() => {
 			animating = false;
-			current = (current + 1) % images.length;
+
+			if (current > images.length) {
+				current = 1;
+			}
 		}, 200);
 	}
 
 	function goPrev() {
 		animating = true;
-		direction = 'l';
+		current--;
+
 		setTimeout(() => {
 			animating = false;
-			current = (current + images.length - 1) % images.length;
+
+			if (current === 0) {
+				current = images.length;
+			}
 		}, 200);
 	}
 </script>
@@ -65,34 +55,29 @@
 <div onmouseenter={() => (paused = true)} onmouseleave={() => (paused = false)}>
 	<div class="flex overflow-hidden">
 		<img
-			src={images[prev].src}
-			alt={images[prev].alt}
-			class="aspect-video w-full bg-muted object-contain {animating
-				? direction === 'r'
-					? '-translate-x-[200%] transition-transform'
-					: '-translate-x-0 transition-transform'
-				: '-translate-x-full'}"
+			src={images[images.length - 1].src}
+			alt={images[images.length - 1].alt}
+			class="aspect-video w-full bg-muted object-contain {animating ? 'transition-transform' : ''}"
+			style="transform: translateX(-{current * 100}%)"
 		/>
+		{#each images as image (image.src)}
+			<img
+				src={image.src}
+				alt={image.alt}
+				class="aspect-video w-full bg-muted object-contain {animating
+					? 'transition-transform'
+					: ''}"
+				style="transform: translateX(-{current * 100}%)"
+			/>
+		{/each}
 		<img
-			src={images[current].src}
-			alt={images[current].alt}
-			class="aspect-video w-full bg-muted object-contain {animating
-				? direction === 'r'
-					? '-translate-x-[200%] transition-transform'
-					: '-translate-x-0 transition-transform'
-				: '-translate-x-full'}"
-		/>
-		<img
-			src={images[next].src}
-			alt={images[next].alt}
-			class="aspect-video w-full bg-muted object-contain {animating
-				? direction === 'r'
-					? '-translate-x-[200%] transition-transform'
-					: '-translate-x-0 transition-transform'
-				: '-translate-x-full'}"
+			src={images[0].src}
+			alt={images[0].alt}
+			class="aspect-video w-full bg-muted object-contain {animating ? 'transition-transform' : ''}"
+			style="transform: translateX(-{current * 100}%)"
 		/>
 	</div>
-	<Progress value={progress / 5} max={100} class="mb-4" />
+	<Progress value={progress / 5} max={100} class="mb-2" />
 	<div class="flex items-center justify-center gap-4">
 		<Button onclick={goPrev} disabled={animating} variant="ghost" class="aspect-square p-1">
 			<ChevronLeft />
@@ -101,11 +86,11 @@
 			{#each Array.from({ length: images.length }) as _, index}
 				<li>
 					<button
-						onclick={() => (current = index)}
+						onclick={() => (current = index + 1)}
 						class="size-4 rounded-full bg-muted p-0.5 hover:bg-accent"
 						aria-label="Skip to image {index + 1}"
 					>
-						{#if current === index}
+						{#if current - 1 === index}
 							<span class="block h-full w-full rounded-full bg-primary"></span>
 						{/if}
 					</button>

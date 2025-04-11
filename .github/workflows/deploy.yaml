@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t $IMAGE_URL .
+          docker build --build-arg PUBLIC_CMS_BASE_PATH=${{ secrets.PUBLIC_CMS_BASE_PATH }} -t $IMAGE_URL .
 
       - name: Push Docker Image
         run: |
