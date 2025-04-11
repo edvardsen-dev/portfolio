@@ -4,15 +4,16 @@ This repo contains all the code for my portfolio website available at [edvardsen
 
 ## Technologies
 
-- **SvelteKit:** Meta framework
-- **Tailwind CSS:** Styling
-- **Shadcn:** UI Library
+- **[SvelteKit](https://svelte.dev/docs/kit/introduction):** Meta framework
+- **[Tailwind CSS](https://tailwindcss.com/):** Styling
+- **[Shadcn](https://next.shadcn-svelte.com/):** UI Library
+- **[PocketBase](https://pocketbase.io/):** CMS
 
-## Getting started - Dev
+## Getting Started
 
 ### Prerequisite
 
-- Docker
+- Docker / Docker Compose
 - Node 20.x
 - PNPM
 
@@ -50,10 +51,11 @@ To populate the CMS with dummy data for local development:
    Run the CMS using the Docker command provided in the [Getting Started](#getting-started---dev) section above.
 
 2. **Create an Admin Account**  
-   Open your browser and go to [localhost:8080/_/](http://localhost:8080/_/).  
+   Open your browser and go to [localhost:8080/\_/](http://localhost:8080/_/).  
    You’ll be prompted to create an admin account. Use any email and password. (They will be overwritten when you restore the dummy data)
 
-3. **Upload the Dummy Data Backup**  
+3. **Upload the Dummy Data Backup**
+
    - Navigate to `Settings` → `Backups`.
    - Click the **Upload backup** button (it looks like a small cloud icon with an upward arrow).
    - Upload the [dummy.zip](./cms/dummy.zip) from this repo. You will see your uploaded zip in the list.
@@ -68,6 +70,7 @@ To populate the CMS with dummy data for local development:
    ```
 
    You can continue using this account for local development, or change the credentials by:
+
    - Logging in with the above credentials.
    - Clicking your profile icon.
    - Navigate to **Manage Admins**.
