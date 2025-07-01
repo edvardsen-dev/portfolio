@@ -10,7 +10,7 @@ type Fetch = typeof globalThis.fetch;
 const ENDPOINT = `${PUBLIC_CMS_BASE_PATH}/api/collections/experiences/records`;
 
 export async function getExperiences(fetch: Fetch): Promise<Experience[]> {
-	const [fetchError, res] = await tryCatch(fetch(ENDPOINT));
+	const [fetchError, res] = await tryCatch(fetch(`${ENDPOINT}?sort=-start`));
 	if (fetchError) {
 		error(500, 'Failed to fetch educations');
 	}
