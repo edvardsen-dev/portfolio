@@ -16,6 +16,7 @@ export function mapExperienceResponseToExperience(res: ExperienceResponse): Expe
 		date: {
 			start: new Date(res.start),
 			end: res.end ? new Date(res.end) : null
-		}
+		},
+		disabled: res.disabled ?? false
 	};
 }
