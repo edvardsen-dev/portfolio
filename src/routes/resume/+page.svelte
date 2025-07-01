@@ -40,28 +40,30 @@
 			<h1 class="title mb-4 text-xl font-extrabold md:mb-8 md:text-3xl">Work Experience</h1>
 		</div>
 		{#each data.experiences as experience}
-			<article class="custom-grid mb-12 md:mb-16 md:gap-x-4">
-				<div class="title mb-4">
-					<p class="text-sm">{experience.company.name}</p>
-					<h2 class="text-lg font-bold uppercase text-primary">{experience.title}</h2>
-				</div>
-				<div
-					class="sidebar mb-4 flex justify-between gap-4 text-sm text-muted-foreground max-md:items-end md:flex-col"
-				>
-					<p>
-						{#if experience.date.start}
-							{toHumanDate(experience.date.start)}
-						{/if}
-						-
-						<br />
-						{#if experience.date.end}
-							{toHumanDate(experience.date.end)}
-						{/if}
-					</p>
-					<p>{experience.location}</p>
-				</div>
-				<p class="description max-w-[80ch] leading-7">{experience.description}</p>
-			</article>
+			{#if !experience.disabled}
+				<article class="custom-grid mb-12 md:mb-16 md:gap-x-4">
+					<div class="title mb-4">
+						<p class="text-sm">{experience.company.name}</p>
+						<h2 class="text-lg font-bold uppercase text-primary">{experience.title}</h2>
+					</div>
+					<div
+						class="sidebar mb-4 flex justify-between gap-4 text-sm text-muted-foreground max-md:items-end md:flex-col"
+					>
+						<p>
+							{#if experience.date.start}
+								{toHumanDate(experience.date.start)}
+							{/if}
+							-
+							<br />
+							{#if experience.date.end}
+								{toHumanDate(experience.date.end)}
+							{/if}
+						</p>
+						<p>{experience.location}</p>
+					</div>
+					<p class="description max-w-[80ch] leading-7">{experience.description}</p>
+				</article>
+			{/if}
 		{/each}
 	</section>
 	<section>

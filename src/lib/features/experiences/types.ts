@@ -13,4 +13,5 @@ export type Experience = {
 	};
 	description: string;
 	technologies?: string[];
+	disabled: boolean;
 };
