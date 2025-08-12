@@ -4,6 +4,6 @@
 	let { children }: { children: Snippet } = $props();
 </script>
 
-<div class="relative z-20 bg-background">
+<div class="relative z-20">
 	{@render children()}
 </div>

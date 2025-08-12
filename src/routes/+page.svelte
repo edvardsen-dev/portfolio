@@ -16,11 +16,20 @@
 	<MouseDongle />
 {/if}
 
-<div class="min-h-[300vh]">
+<div class="relative">
+	<!-- Hero Section -->
 	<Hero />
-	<Technologies />
+
+	<!-- Technologies Section -->
+	<div class="relative z-10">
+		<Technologies />
+	</div>
+
+	<!-- Experience and Projects -->
 	<HideDongle>
-		<Experiences />
-		<Projects projects={data.projects} />
+		<div class="relative z-10 space-y-24">
+			<Experiences />
+			<Projects projects={data.projects} />
+		</div>
 	</HideDongle>
 </div>

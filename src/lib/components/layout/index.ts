@@ -31,8 +31,8 @@ export const contacts = [
 	{ name: 'Phone', value: '+47 901 59 363', href: 'tel:901-59-363', icon: Phone },
 	{
 		name: 'Location',
-		value: 'Trondheim, Norway',
-		href: 'https://maps.app.goo.gl/qHYuA72PZf55RqH56',
+		value: 'Oslo, Norway',
+		href: 'https://maps.app.goo.gl/YourOsloMapLink',
 		icon: Pin
 	}
 ];

@@ -10,7 +10,7 @@
 			icon: Mail
 		},
 		{ label: '+47 901 59 363 ', href: 'tel:+4790159363', icon: Phone },
-		{ label: 'Trondheim, Norway', href: 'https://maps.app.goo.gl/qHYuA72PZf55RqH56', icon: Pin },
+		{ label: 'Oslo, Norway', href: 'https://maps.app.goo.gl/qHYuA72PZf55RqH56', icon: Pin },
 		{
 			label: 'linkedin.com/in/joakim-edvardsen',
 			href: 'https://www.linkedin.com/in/joakim-edvardsen-665043220/',

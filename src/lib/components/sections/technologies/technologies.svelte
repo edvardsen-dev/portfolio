@@ -6,115 +6,154 @@
 	type Tool = {
 		name: string;
 		file: string;
-		options: { bg: string; invert?: boolean };
+		options: { invert?: boolean };
 	};
 
+	// All technologies for the carousel
 	const tools: Tool[] = [
 		{
 			name: 'TypeScript',
 			file: 'typescript.png',
-			options: { bg: 'bg-blue-400/20' }
+			options: {}
 		},
 		{
 			name: 'SvelteKit',
 			file: 'svelte.png',
-			options: { bg: 'bg-orange-400/20' }
+			options: {}
 		},
 		{
 			name: 'Tailwind',
 			file: 'tailwind.png',
-			options: { bg: 'bg-blue-400/20' }
+			options: {}
 		},
 		{
 			name: 'Drizzle',
 			file: 'drizzle.png',
-			options: { bg: 'bg-neutral-600/20' }
+			options: {}
 		},
 		{
 			name: 'Playwright',
 			file: 'playwright.svg',
-			options: { bg: 'bg-green-600/20' }
+			options: {}
 		},
-		{ name: 'Java', file: 'java.png', options: { bg: 'bg-blue-400/20' } },
+		{
+			name: 'Java',
+			file: 'java.png',
+			options: {}
+		},
 		{
 			name: 'Spring Boot',
 			file: 'spring-boot.png',
-			options: { bg: 'bg-green-400/20' }
+			options: {}
 		},
 		{
 			name: 'PostgreSQL',
 			file: 'postgresql.png',
-			options: { bg: 'bg-blue-400/20' }
+			options: {}
 		},
 		{
 			name: 'Git',
 			file: 'git.png',
-			options: { bg: 'bg-orange-600/20' }
+			options: {}
 		},
 		{
 			name: 'GitHub Actions',
 			file: 'github-actions.png',
-			options: { bg: 'bg-blue-400/20' }
+			options: {}
 		},
-		{ name: 'Docker', file: 'docker.webp', options: { bg: 'bg-blue-400/20' } },
-		{ name: 'Nginx', file: 'nginx.png', options: { bg: 'bg-green-600/20' } },
+		{
+			name: 'Docker',
+			file: 'docker.webp',
+			options: {}
+		},
+		{
+			name: 'Nginx',
+			file: 'nginx.png',
+			options: {}
+		},
 		{
 			name: 'DigitalOcean',
 			file: 'digitalocean.png',
-			options: { bg: 'bg-neutral-400/20' }
+			options: {}
 		},
 		{
 			name: 'Ansible',
 			file: 'ansible.png',
-			options: { bg: 'bg-neutral-400/20', invert: true }
+			options: { invert: true }
 		},
 		{
 			name: 'Figma',
 			file: 'figma.png',
-			options: { bg: 'bg-violet-400/20' }
+			options: {}
 		}
 	] as const;
+
+	// Duplicate the tools array for seamless infinite scroll
+	const duplicatedTools = [...tools, ...tools];
 
 	let section = $state<HTMLElement | null>(null);
 	let transition = useTransitionIn(() => section);
 </script>
 
-<div class="relative z-20 bg-muted/40 backdrop-blur-sm">
-	<Width>
-		<section bind:this={section} class="grid gap-16 py-24 md:grid-cols-2 md:gap-4 md:py-32">
-			<div>
-				<h1 class="mb-4 text-4xl font-bold">Technologies</h1>
-				<p class="text-sm text-muted-foreground">
-					Full-stack engineer focused on web development, using a range of technologies to build
-					seamless applications from front to back end.
-				</p>
+<div class="bg-muted/80">
+	<section bind:this={section} class="py-12 md:py-20">
+		<!-- Header -->
+		<div class="mb-8 text-center md:mb-12">
+			<h2 class="mb-3 text-2xl font-bold text-foreground">Technologies I Work With</h2>
+			<p class="text-sm text-muted-foreground">
+				Modern tools and frameworks I use to build great software
+			</p>
+		</div>
+
+		<!-- Infinite Scrolling Carousel -->
+		{#if transition.show}
+			<div class="relative overflow-hidden">
+				<!-- Right fade -->
+				<div
+					class="to-99% from-1% pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-muted/80 via-transparent to-muted/80"
+				></div>
+
+				<div class="scroll-animation flex w-max gap-6 py-8">
+					{#each duplicatedTools as tool, index}
+						{@render techCard(tool, index)}
+					{/each}
+				</div>
 			</div>
-			<div class="grid grid-cols-4 gap-4 gap-y-8">
-				{#each tools as tool, index}
-					{@render cardWrapper(tool, index)}
-				{/each}
-			</div>
-		</section>
-	</Width>
+		{/if}
+	</section>
 </div>
 
-{#snippet card(tool: Tool, index: number, hidden: boolean = false)}
-	<div in:fly={{ y: 40, duration: 1000, delay: 50 * index }} class={`${hidden && 'invisible'}`}>
-		<div class="m-auto mb-2 grid size-12 items-center rounded-lg border p-2 {tool.options.bg}">
-			<img
-				src={`/img/logos/${tool.file}`}
-				alt={tool.name}
-				class="aspect-square object-contain {tool.options.invert && 'dark:invert'}"
-			/>
-		</div>
-		<p class="text-center text-xs text-muted-foreground">{tool.name}</p>
+{#snippet techCard(tool: Tool, index: number)}
+	<div
+		class="group flex items-center gap-2 rounded-lg px-4 transition-transform duration-300 hover:scale-105"
+	>
+		<img
+			src={`/img/logos/${tool.file}`}
+			alt={tool.name}
+			class="size-6 object-contain transition-transform duration-300 group-hover:scale-110 {tool
+				.options.invert && 'dark:invert'}"
+		/>
+		<span class="text-sm text-foreground transition-colors duration-300 group-hover:text-primary">
+			{tool.name}
+		</span>
 	</div>
 {/snippet}
 
-{#snippet cardWrapper(tool: Tool, index: number)}
-	{#if transition.show}
-		{@render card(tool, index)}
-	{:else}
-		{@render card(tool, index, true)}
-	{/if}
-{/snippet}
+<style>
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	.scroll-animation {
+		animation: scroll 30s linear infinite;
+	}
+
+	.scroll-animation:hover {
+		animation-play-state: paused;
+	}
+</style>
