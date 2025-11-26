@@ -43,7 +43,7 @@
 					Full stack software engineer
 				</h2>
 				<p in:fly={{ ...transition, delay: 300 }} class="mb-8">
-					Computer engineer student at NTNU Trondheim, Norway.
+					Master's graduate from NTNU. Working as system architect graduate at DNB in Oslo, Norway.
 				</p>
 				<div class="flex gap-2">
 					<div in:fly={{ ...transition, delay: 400 }}>
