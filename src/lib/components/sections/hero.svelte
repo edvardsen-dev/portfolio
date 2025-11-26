@@ -42,7 +42,7 @@
 				<h2 in:fly={{ ...transition, delay: 200 }} class="mb-4 font-bold uppercase text-primary">
 					Full stack software engineer
 				</h2>
-				<p in:fly={{ ...transition, delay: 300 }} class="mb-8">
+				<p in:fly={{ ...transition, delay: 300 }} class="mb-8 max-w-[420px]">
 					Master's graduate from NTNU. Working as system architect graduate at DNB in Oslo, Norway.
 				</p>
 				<div class="flex gap-2">
