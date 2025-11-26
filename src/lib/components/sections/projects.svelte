@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PUBLIC_CMS_BASE_PATH } from '$env/static/public';
 	import Width from '$lib/components/utils/width.svelte';
-	import type { Project } from '$lib/types';
+	import type { Project } from '$lib/features/projects/types';
 	import { Radio } from 'lucide-svelte';
 
 	let { projects }: { projects: Project[] } = $props();
