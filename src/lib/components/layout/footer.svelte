@@ -1,6 +1,6 @@
 <script>
-	import Button, { buttonVariants } from '$lib/components/ui/button/button.svelte';
-	import { ArrowRight, Codepen, Github, Home, Instagram, Linkedin, Mail } from 'lucide-svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { ArrowRight, Mail } from 'lucide-svelte';
 	import Width from '$lib/components/utils/width.svelte';
 	import { contacts, links, socials } from '.';
 </script>
