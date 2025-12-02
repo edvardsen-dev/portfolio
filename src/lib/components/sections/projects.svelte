@@ -8,7 +8,7 @@
 </script>
 
 <Width>
-	<section class="mt-12 pt-12 md:mt-20 md:pt-20" id="projects">
+	<section class="mt-12 pb-12 pt-12 md:mt-20 md:pt-20" id="projects">
 		<h1 class="mb-8 text-4xl font-bold">Projects</h1>
 		<div class="space-y-16 lg:space-y-12">
 			{#each projects as project, index}
