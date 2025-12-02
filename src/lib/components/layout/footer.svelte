@@ -30,7 +30,9 @@
 				</p>
 				<ul class="flex gap-4">
 					{#each socials as social}
-						<li class="rounded-lg border bg-background p-2">
+						<li
+							class="rounded-lg border bg-background p-2 transition-colors focus-within:border-primary focus-within:bg-primary/50 hover:border-primary hover:bg-primary/50"
+						>
 							<a href={social.href} target="_blank">
 								<social.icon class="size-4" />
 							</a>
