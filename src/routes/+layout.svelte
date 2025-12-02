@@ -55,9 +55,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
+<!-- <div class="fixed inset-0 bg-gradient-to-br from-background via-muted/30 to-background"></div>
+<div class="fixed inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent"></div> -->
+
 <ModeWatcher />
 <NavBar />
-<div class="mb-[100vh] bg-background shadow">
-	{@render children()}
-</div>
+{@render children()}
 <Footer />
