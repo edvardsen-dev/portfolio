@@ -6,14 +6,14 @@
 </script>
 
 <footer>
-	<div class="bg-muted/30 py-32">
-		<Width>
+	<div class="bg-muted/40 py-32 lg:py-64">
+		<Width class="flex flex-col lg:items-center lg:text-center">
 			<h2
-				class="mb-4 w-fit bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-xl font-bold text-transparent"
+				class="mb-4 w-fit bg-gradient-to-r from-primary via-primary/70 to-primary bg-clip-text text-xl font-bold text-transparent lg:mb-6 lg:text-3xl"
 			>
 				Thanks for stopping by!
 			</h2>
-			<p class="mb-8 text-muted-foreground">
+			<p class="mb-8 max-w-[700px] text-muted-foreground lg:mb-12">
 				I love connecting with fellow developers and working on interesting projects. Feel free to
 				reach out if you'd like to chat about tech, collaboration, or just say hello.
 			</p>
@@ -21,8 +21,8 @@
 		</Width>
 	</div>
 	<Width>
-		<div class="grid gap-8 border-b border-t border-muted-foreground/10 py-12">
-			<div>
+		<div class="flex gap-8 border-b border-muted-foreground/10 py-12 max-lg:flex-col">
+			<div class="max-w-[600px] flex-grow">
 				<h3 class="mb-4 font-semibold">Joakim Edvardsen</h3>
 				<p class="mb-4 text-muted-foreground">
 					Software architect based in Oslo, Norway. I enjoy building web applictionns and learning
@@ -38,7 +38,7 @@
 					{/each}
 				</ul>
 			</div>
-			<div>
+			<div class="flex-grow">
 				<h3 class="mb-4 font-semibold">Quick Links</h3>
 				<ul class="flex flex-col gap-2">
 					{#each links as link}
@@ -52,7 +52,7 @@
 					{/each}
 				</ul>
 			</div>
-			<div>
+			<div class="flex-grow">
 				<h3 class="mb-4 font-semibold">Get in Touch</h3>
 				<ul class="flex flex-col gap-2">
 					{#each contacts as contact}
