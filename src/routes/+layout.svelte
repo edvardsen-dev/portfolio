@@ -57,7 +57,5 @@
 
 <ModeWatcher />
 <NavBar />
-<div class="mb-[100vh] bg-background shadow">
-	{@render children()}
-</div>
+{@render children()}
 <Footer />
